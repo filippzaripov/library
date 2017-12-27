@@ -1,7 +1,0 @@
-com\fujitsu\internship\Main.class
-com\fujitsu\internship\servlets\FindBookByIDServlet.class
-com\fujitsu\internship\DAO\BookDAO.class
-com\fujitsu\internship\servlets\ShowAllBooksServlet.class
-com\fujitsu\internship\Book.class
-com\fujitsu\internship\PostgreSQLBookDAO.class
-com\fujitsu\internship\PostgreSQLConnector.class
