@@ -1,9 +1,9 @@
-package com.fujitsu.internship;
+package model;
 
 public class Book {
 
-    public String name;
-    public long ID;
+    private String name;
+    private long ID;
 
 
 
@@ -13,7 +13,7 @@ public class Book {
         setName(name);
         setCategory_name(category_name);
     }
-    public Book(Long ID, String name, String category_name){
+    public Book(long ID, String name, String category_name){
         setID(ID);
         setName(name);
         setCategory_name(category_name);
@@ -45,7 +45,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "model.Book{" +
                 "name='" + name + '\'' +
                 ", ID=" + ID +
                 ", category_name='" + category_name + '\'' +

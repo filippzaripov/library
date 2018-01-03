@@ -1,8 +1,7 @@
-package com.fujitsu.internship.servlets;
+package servlets;
 
-import com.fujitsu.internship.DAO.BookDAO;
-import com.fujitsu.internship.PostgreSQLBookDAO;
-
+import dao.BookDAO;
+import dao.pg.PostgreSQLBookDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,13 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 public class FindBookByIDServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //String id = req.getParameter("ID");
-        int id = Integer.parseInt(req.getParameter("ID"));
+        long id = Long.parseLong(req.getParameter("ID"));
         BookDAO book = new PostgreSQLBookDAO();
         try{
             req.setAttribute("result", book.getBook(id));

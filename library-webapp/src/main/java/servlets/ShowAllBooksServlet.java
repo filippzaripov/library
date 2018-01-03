@@ -1,8 +1,7 @@
-package com.fujitsu.internship.servlets;
+package servlets;
 
-import com.fujitsu.internship.DAO.BookDAO;
-import com.fujitsu.internship.PostgreSQLBookDAO;
-
+import dao.BookDAO;
+import dao.pg.PostgreSQLBookDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

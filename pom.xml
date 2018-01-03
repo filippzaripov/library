@@ -7,45 +7,45 @@
     <groupId>com.fujitsu.internship</groupId>
     <artifactId>library</artifactId>
     <version>0.1</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>library-dao</module>
+        <module>library-model</module>
+        <module>library-webapp</module>
+    </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fujitsu.internship</groupId>
+                <artifactId>library-model</artifactId>
+                <version>0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fujitsu.internship</groupId>
+                <artifactId>library-webapp</artifactId>
+                <version>0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fujitsu.internship</groupId>
+                <artifactId>library-dao</artifactId>
+                <version>0.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
-
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 
 </project>
