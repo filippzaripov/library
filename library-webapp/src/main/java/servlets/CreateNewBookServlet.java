@@ -1,6 +1,7 @@
 package servlets;
 
 import dao.BookDAO;
+import dao.Validator;
 import dao.pg.PostgreSQLBookDAO;
 import model.Book;
 
@@ -17,13 +18,20 @@ public class CreateNewBookServlet extends HttpServlet {
         BookDAO bookDAO = new PostgreSQLBookDAO();
         String name= req.getParameter("name");
         String category = req.getParameter("category_name");
-        try{
-          bookDAO.addBook(new Book(name,category));
-          req.setAttribute("result", "Book "+ name +" was added to database");
-          //TODO: make my own exception
-        }catch(Exception e){
-            System.err.println("class : CreateNewBookServlet , line : 25");
+        Validator validator = new Validator();
+        if (validator.validateNewBookField(name, category)){
+            try{
+                bookDAO.addBook(new Book(name,category));
+                req.setAttribute("result", "Book "+ name +" was added to database");
+                //TODO: make my own exception
+            }catch(Exception e){
+                System.err.println("class : CreateNewBookServlet , line : 25");
+            }
+        }else {
+            req.setAttribute("result", "Book name or category is not correct");
         }
+
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req,resp);
     }

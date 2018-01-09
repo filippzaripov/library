@@ -1,6 +1,7 @@
 package servlets;
 
 import dao.BookDAO;
+import dao.Validator;
 import dao.pg.PostgreSQLBookDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -14,15 +15,22 @@ import java.io.IOException;
 public class DeleteBookServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Validator validator = new Validator();
         BookDAO bookDAO = new PostgreSQLBookDAO();
-        long id = Long.parseLong(req.getParameter("ID_to_delete"));
-        try{
-            String name = bookDAO.getBook(id).getName();
-            bookDAO.delete(id);
-            req.setAttribute("result", "Book "+ name +" was removed from database");
-        }catch (Exception e){
-            System.err.println("class : DeleteBookServlet , line : 24");
-        }
+        String idFromField = req.getParameter("ID_to_delete");
+            if (validator.isIDCorrect(idFromField)) {
+                Long id = Long.parseLong(idFromField);
+                try {
+                    String name = bookDAO.getBook(id).getName();
+                    bookDAO.delete(id);
+                    req.setAttribute("result", "Book " + name + " was removed from database");
+                } catch (Exception e) {
+                    System.err.println("class : DeleteBookServlet , line : 24");
+                }
+            } else {
+                req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
+            }
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req,resp);
     }
