@@ -9,21 +9,44 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * That class is use to validate all data that user enter in form before making database query.
+ * @author Filipp Zaripov
+ */
 public class Validator {
+    /** connector that uses to connect to Database */
     PostgreSQLConnector connector = new PostgreSQLConnector();
 
+    /**
+     * This method is to validate name of the category by regular expression
+     * @param category_name name of the book category
+     * @return true if valid, else - false
+     */
     private boolean categoryNameValidate(String category_name){
         Pattern pattern = Pattern.compile("^[a-zA-Z]+");
         Matcher m = pattern.matcher(category_name);
 
         return m.matches();
     }
+
+    /**
+     * This method is to validate book name by regular expression
+     * @param book_name name of the book
+     * @return true if valid, else - false
+     */
     private boolean bookNameValidate(String book_name){
         Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s\\?\\!\\.]+");
         Matcher m = pattern.matcher(book_name);
         
         return m.matches();
     }
+
+    /**
+     * Validates input parameters before creating new book
+     * @param book_name name of the book
+     * @param category name of the book category
+     * @return true if valid, else - false
+     */
     public boolean validateNewBookField(String book_name, String category){
         Connection connection = connector.getConnection();
 
@@ -49,6 +72,12 @@ public class Validator {
         }
         return false;
     }
+
+    /**
+     * Validates if entered ID is correct before execute SQL request
+     * @param idFromField ID entered by user
+     * @return true if valid, else - false
+     */
     public boolean isIDCorrect(String idFromField){
         Connection connection = connector.getConnection();
         if (StringUtils.isNumeric(idFromField)) {

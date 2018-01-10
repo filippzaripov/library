@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet class that processes requests for finding book in database
+ * @author Filipp Zaripov
+ */
 public class FindBookByIDServlet extends HttpServlet {
 
     @Override

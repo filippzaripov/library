@@ -6,7 +6,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import model.Book;
 
-
+/**
+ * This class implements BookDAO interface and manipulates with Database
+ * @see dao.BookDAO
+ * @author Filipp Zaripov
+ *
+ */
 public class PostgreSQLBookDAO implements BookDAO {
     PostgreSQLConnector connector = new PostgreSQLConnector();
 

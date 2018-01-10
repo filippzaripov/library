@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet class that processes requests for finding book
+ * @author Filipp Zaripov
+ */
 public class ShowAllBooksServlet extends HttpServlet {
 
     @Override
