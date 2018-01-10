@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <H3>Please enter id to find book</H3>
+    <H3>Please enter ID to find book</H3>
     <form action="find_book_by_id" method="get">
         <input type="number" name="ID" min="1" max="9223372036854775807" value="book ID" onfocus="if (this.value == 'book ID') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book ID';}"/>
         <input type="submit" value="FIND BOOK"/>
@@ -32,7 +32,7 @@
     </form>
     <H3>Please enter ID of the book that you want to delete</H3>
     <form action="delete_book">
-        <input type="text" name="ID_to_delete" value="book ID" onfocus="if (this.value == 'book ID') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book ID';}"/>
+        <input type="number" name="ID_to_delete" value="book ID" onfocus="if (this.value == 'book ID') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book ID';}"/>
         <input type="submit" value="DELETE BOOK"/>
     </form>
     <div><c:out value="${result}"/></div>
