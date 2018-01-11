@@ -22,13 +22,9 @@ public class DeleteBookServlet extends HttpServlet{
         String idFromField = req.getParameter("ID_to_delete");
             if (validator.isIDCorrect(idFromField)) {
                 Long id = Long.parseLong(idFromField);
-                try {
-                    String name = bookDAO.getBook(id).getName();
-                    bookDAO.delete(id);
-                    req.setAttribute("result", "Book " + name + " was removed from database");
-                } catch (Exception e) {
-                    System.err.println("class : DeleteBookServlet , line : 24");
-                }
+                String name = bookDAO.getBook(id).getName();
+                bookDAO.delete(id);
+                req.setAttribute("result", "Book " + name + " was removed from database");
             } else {
                 req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
             }

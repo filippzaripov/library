@@ -2,6 +2,9 @@ package dao;
 
 import dao.pg.PostgreSQLConnector;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +17,7 @@ import java.util.regex.Pattern;
  * @author Filipp Zaripov
  */
 public class Validator {
+    private static Logger log = LoggerFactory.getLogger(Validator.class);
     /** connector that uses to connect to Database */
     PostgreSQLConnector connector = new PostgreSQLConnector();
 
@@ -63,12 +67,18 @@ public class Validator {
                     return true;
                 }
             }catch (NullPointerException e){
-                System.err.println("category name is not correct");
+                log.error("Category name is not correct");
                 return false;
             }
         }catch(SQLException e){
-            System.err.println("class : Validator, line : 18");
+            log.error("SQL Exception while validate new book data", e);
             return false;
+        }finally {
+            try{
+                connection.close();
+            }catch (SQLException e){
+                log.error("SQL Exception while close connection while validate new book data");
+            }
         }
         return false;
     }
@@ -100,15 +110,21 @@ public class Validator {
                             }
                         }
                     } catch (SQLException e) {
-                        System.err.println("class : Validator, line : 57");
+                        log.error("SQL Exception while checking ID", e);
                         return false;
                     }
                 } else {
                     return false;
                 }
             } catch (NullPointerException e) {
-                System.err.println("ID for deletion is null!");
+                log.error("ID for deletion is null!");
                 return false;
+            } finally {
+                try{
+                    connection.close();
+                }catch (SQLException e){
+                    log.error("SQL Exception while close connection while validate ID of the book", e);
+                }
             }
         }
         return false;

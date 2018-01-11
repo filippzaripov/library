@@ -24,13 +24,8 @@ public class CreateNewBookServlet extends HttpServlet {
         String category = req.getParameter("category_name");
         Validator validator = new Validator();
         if (validator.validateNewBookField(name, category)){
-            try{
-                bookDAO.addBook(new Book(name,category));
-                req.setAttribute("result", "Book "+ name +" was added to database");
-                //TODO: make my own exception
-            }catch(Exception e){
-                System.err.println("class : CreateNewBookServlet , line : 25");
-            }
+            bookDAO.addBook(new Book(name,category));
+            req.setAttribute("result", "Book "+ name +" was added to database");
         }else {
             req.setAttribute("result", "Book name or category is not correct");
         }

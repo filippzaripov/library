@@ -2,6 +2,9 @@ package servlets;
 
 import dao.BookDAO;
 import dao.pg.PostgreSQLBookDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,19 +17,12 @@ import java.io.IOException;
  * @author Filipp Zaripov
  */
 public class ShowAllBooksServlet extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookDAO book = new PostgreSQLBookDAO();
-        try{
-            req.setAttribute("result", book.getAll());
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
+        req.setAttribute("result", book.getAll());
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req,resp);
-
     }
 
     @Override
