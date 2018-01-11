@@ -84,11 +84,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return "model.Book{" +
+        return
+                "ID=" + ID + ", " +
                 "name='" + name + '\'' +
-                ", ID=" + ID +
-                ", category_name='" + category_name + '\'' +
-                '}';
+                ", category_name='" + category_name + '\'' + " | ";
     }
 }
 
