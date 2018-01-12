@@ -11,23 +11,23 @@
     </error-page>-->
     <servlet>
         <servlet-name>FindBookByIDServlet</servlet-name>
-        <servlet-class>servlets.FindBookByIDServlet</servlet-class>
+        <servlet-class>com.fujitsu.internship.servlets.FindBookByIDServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ShowAllBooksServlet</servlet-name>
-        <servlet-class>servlets.ShowAllBooksServlet</servlet-class>
+        <servlet-class>com.fujitsu.internship.servlets.ShowAllBooksServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteBookByID</servlet-name>
-        <servlet-class>servlets.DeleteBookServlet</servlet-class>
+        <servlet-class>com.fujitsu.internship.servlets.DeleteBookServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddBook</servlet-name>
-        <servlet-class>servlets.CreateNewBookServlet</servlet-class>
+        <servlet-class>com.fujitsu.internship.servlets.CreateNewBookServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>testServlet</servlet-name>
-        <servlet-class>servlets.testServlets.TestServlet</servlet-class>
+        <servlet-class>com.fujitsu.internship.servlets.testServlets.TestServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>testServlet</servlet-name>

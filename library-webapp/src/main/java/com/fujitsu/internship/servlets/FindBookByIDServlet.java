@@ -1,11 +1,9 @@
-package servlets;
+package com.fujitsu.internship.servlets;
 
-import dao.BookDAO;
-import dao.Validator;
-import dao.pg.PostgreSQLBookDAO;
-import model.Book;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.fujitsu.internship.dao.BookDAO;
+import com.fujitsu.internship.dao.Validator;
+import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
+import com.fujitsu.internship.model.Book;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

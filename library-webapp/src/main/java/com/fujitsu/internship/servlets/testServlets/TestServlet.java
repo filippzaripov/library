@@ -1,8 +1,8 @@
-package servlets.testServlets;
+package com.fujitsu.internship.servlets.testServlets;
 
 
-import dao.pg.PostgreSQLConnector;
-import model.Book;
+import com.fujitsu.internship.dao.pg.PostgreSQLConnector;
+import com.fujitsu.internship.model.Book;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

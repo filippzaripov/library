@@ -1,15 +1,15 @@
-package dao.pg;
+package com.fujitsu.internship.dao.pg;
 
-import dao.BookDAO;
+import com.fujitsu.internship.dao.BookDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
-import model.Book;
+import com.fujitsu.internship.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**
  * This class implements BookDAO interface and manipulates with Database
- * @see dao.BookDAO
+ * @see com.fujitsu.internship.dao.BookDAO
  * @author Filipp Zaripov
  *
  */

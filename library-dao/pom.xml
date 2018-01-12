@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>library-dao</artifactId>
-    <version>0.1</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>com.fujitsu.internship</groupId>
         <artifactId>library</artifactId>
-        <version>0.1</version>
+        <version>0.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
@@ -22,22 +22,18 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.7</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.1.4</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
         </dependency>
     </dependencies>
 </project>

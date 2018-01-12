@@ -1,4 +1,4 @@
-package model;
+package com.fujitsu.internship.model;
 
 /**
  * This class is Book object.

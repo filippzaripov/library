@@ -1,4 +1,4 @@
-import dao.Validator;
+import com.fujitsu.internship.dao.Validator;
 import junit.framework.TestCase;
 import org.junit.Test;
 
