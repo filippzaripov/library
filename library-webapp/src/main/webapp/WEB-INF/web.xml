@@ -6,9 +6,9 @@
     <!--<welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>-->
-    <error-page>
+    <!--<error-page>
         <location>/commonErrorPage.html</location>
-    </error-page>
+    </error-page>-->
     <servlet>
         <servlet-name>FindBookByIDServlet</servlet-name>
         <servlet-class>servlets.FindBookByIDServlet</servlet-class>
@@ -25,6 +25,14 @@
         <servlet-name>AddBook</servlet-name>
         <servlet-class>servlets.CreateNewBookServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>testServlet</servlet-name>
+        <servlet-class>servlets.testServlets.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testServlet</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FindBookByIDServlet</servlet-name>
         <url-pattern>/find_book_by_id</url-pattern>

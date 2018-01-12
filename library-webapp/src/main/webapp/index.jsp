@@ -15,9 +15,24 @@
 
 </head>
 <body>
-    <H3>Please enter ID to find book</H3>
+    <table border="1px" class="book-table" align="right">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+        </tr>
+
+        <c:forEach items="${bookList}" var="books">
+            <tr>
+                <td><c:out value="${books.id}"/> </td>
+                <td><c:out value="${books.name}"/></td>
+                <td><c:out value="${books.category_name}"/></td>
+            </tr>
+        </c:forEach>
+    </table>
+    <H3>Please enter id to find book</H3>
     <form action="find_book_by_id" method="get">
-        <input type="number" name="ID" min="1" max="9223372036854775807" value="book ID" onfocus="if (this.value == 'book ID') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book ID';}"/>
+        <input type="number" name="id" min="1" max="9223372036854775807" value="book id" onfocus="if (this.value == 'book id') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book id';}"/>
         <input type="submit" value="FIND BOOK"/>
     </form>
     <H3>Please click this button to show all books</H3>
@@ -30,12 +45,13 @@
         <input type="text" name="category_name" value="book category" onfocus="if (this.value == 'book category') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book category';}"/>
         <input type="submit" value="ADD BOOK"/>
     </form>
-    <H3>Please enter ID of the book that you want to delete</H3>
+    <H3>Please enter id of the book that you want to delete</H3>
     <form action="delete_book">
-        <input type="number" name="ID_to_delete" value="book ID" onfocus="if (this.value == 'book ID') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book ID';}"/>
+        <input type="number" name="ID_to_delete" value="book id" onfocus="if (this.value == 'book id') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book id';}"/>
         <input type="submit" value="DELETE BOOK"/>
     </form>
     <div><c:out value="${result}"/></div>
+
 
 </body>
 </html>

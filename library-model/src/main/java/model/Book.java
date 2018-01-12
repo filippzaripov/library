@@ -8,10 +8,10 @@ package model;
 public class Book {
     /** Field for book name */
     private String name;
-    /** Field for book ID */
-    private long ID;
+    /** Field for book id */
+    private long id;
     /** Field for book category name */
-    public String category_name;
+    private String category_name;
 
     /**
      * Constructor that creates Book object
@@ -25,12 +25,12 @@ public class Book {
 
     /**
      * Constructor that creates Book object
-     * @param ID ID of the Book
+     * @param id id of the Book
      * @param name Name of the Book
      * @param category_name Category of the Book
      */
-    public Book(long ID, String name, String category_name){
-        setID(ID);
+    public Book(long id, String name, String category_name){
+        setId(id);
         setName(name);
         setCategory_name(category_name);
     }
@@ -52,19 +52,19 @@ public class Book {
     }
 
     /**
-     * Get ID of the Book
-     * @return ID of the Book
+     * Get id of the Book
+     * @return id of the Book
      */
-    public long getID() {
-        return ID;
+    public long getId() {
+        return id;
     }
 
     /**
-     * Set ID of the Book
-     * @param ID ID of the book that should be changed
+     * Set id of the Book
+     * @param id id of the book that should be changed
      */
-    public void setID(long ID){
-        this.ID = ID;
+    public void setId(long id){
+        this.id = id;
     }
 
     /**
@@ -85,7 +85,7 @@ public class Book {
     @Override
     public String toString() {
         return
-                "ID=" + ID + ", " +
+                "id=" + id + ", " +
                 "name='" + name + '\'' +
                 ", category_name='" + category_name + '\'' + " | ";
     }

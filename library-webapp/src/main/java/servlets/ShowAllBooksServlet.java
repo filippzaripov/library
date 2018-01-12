@@ -20,7 +20,7 @@ public class ShowAllBooksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookDAO book = new PostgreSQLBookDAO();
-        req.setAttribute("result", book.getAll());
+        req.setAttribute("bookList", book.getAll());
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req,resp);
     }

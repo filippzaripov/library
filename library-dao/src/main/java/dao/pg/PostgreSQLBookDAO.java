@@ -21,7 +21,7 @@ public class PostgreSQLBookDAO implements BookDAO {
             Book book = null;
 
             try {
-                    PreparedStatement stmt = connection.prepareStatement("SELECT ID,name,category_name FROM books WHERE ID = ?");
+                    PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name FROM books WHERE ID = ?");
                     stmt.setLong(1, id);
                     ResultSet rs = stmt.executeQuery();
                     while(rs.next()) {
@@ -46,10 +46,10 @@ public class PostgreSQLBookDAO implements BookDAO {
         Connection connection = connector.getConnection();
         ArrayList<Book> bookList = new ArrayList();
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT ID,name,category_name FROM books");
+            PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name FROM books");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                bookList.add(new Book(rs.getLong("ID"), rs.getString("name"), rs.getString("category_name")));
+                bookList.add(new Book(rs.getLong("id"), rs.getString("name"), rs.getString("category_name")));
             }
             rs.close();
             stmt.close();
