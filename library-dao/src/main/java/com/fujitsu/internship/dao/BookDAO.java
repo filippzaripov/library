@@ -1,7 +1,7 @@
-package dao;
+package com.fujitsu.internship.dao;
 
 import java.util.ArrayList;
-import model.Book;
+import com.fujitsu.internship.model.Book;
 /**
  * This intreface is for work with Database.
  *  @author Filipp Zaripov

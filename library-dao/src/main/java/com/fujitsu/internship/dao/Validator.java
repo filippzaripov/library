@@ -1,6 +1,6 @@
-package dao;
+package com.fujitsu.internship.dao;
 
-import dao.pg.PostgreSQLConnector;
+import com.fujitsu.internship.dao.pg.PostgreSQLConnector;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,7 @@
-package dao.pg;
+package com.fujitsu.internship.dao.pg;
 
 import java.sql.*;
-import java.util.ArrayList;
-import org.postgresql.Driver;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +9,9 @@ import org.slf4j.LoggerFactory;
  * This class creating connection to PostgreSQL Database
  * @author Filipp Zaripov
  */
+
+//TODO:Make connector singleton
+
 public class PostgreSQLConnector {
     private static Logger log = LoggerFactory.getLogger(PostgreSQLConnector.class);
     /** This field is connection to database */
@@ -29,8 +31,10 @@ public class PostgreSQLConnector {
             connection  = DriverManager.getConnection(url, login, password);
 
         }catch (ClassNotFoundException e){
+            //TODO: "change to: pease check driver"
             log.error("ClassNotFound Exception in PostgreSQLConnector class", e);
         }catch (SQLException e){
+            //TODO:Throw exception higher
             log.error("SQL Exception in PostgreSQLConnector class", e);
         }
     return connection;
