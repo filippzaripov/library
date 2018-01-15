@@ -19,7 +19,6 @@ public class PostgreSQLBookDAO implements BookDAO {
     public Book getBook(long id) {
         Connection connection = connector.getConnection();
             Book book = null;
-
             try {
                     PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name FROM books WHERE ID = ?");
                     stmt.setLong(1, id);
