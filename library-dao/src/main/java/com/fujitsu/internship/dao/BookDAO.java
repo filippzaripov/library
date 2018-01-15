@@ -1,40 +1,39 @@
 package com.fujitsu.internship.dao;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import com.fujitsu.internship.model.Book;
 /**
- * This intreface is for work with Database.
+ *  Interface
  *  @author Filipp Zaripov
+ *  Each method throws DataAccessException
  */
 public interface BookDAO {
 
     /**
-     * Method that gets Book object from Database. Search by ID of the Book.
-     * @param id using for searching Book in DB
-     * @return Book object
-     * @throws Exception
+     * Retrieves a book by its id
+     * @param id the id of the book to retrieve, must not be null
+     * @return the book with given id or {@code null} if none found.
      */
-    Book getBook(long id);
+    Book getBook(long id) throws DataAccessException;
 
     /**
-     * This method returns all books from Database
-     * @return returns all books from Database
-     * @throws Exception
+     * @return all books as List or {@code null} if none found.
      */
-    ArrayList<Book> getAll();
+    List<Book> getAll()throws DataAccessException;
 
     /**
-     * This method deletes book by ID from Database
-     * @param id using for searching Book in DB
-     * @throws Exception
+     * deletes book by id
+     * if book wasn't found shows message that id isn't correct
+     * @param id using for searching Book
      */
-    void delete(long id);
+    void delete(long id)throws DataAccessException;
 
     /**
-     * This method creates new book and add it to Database
-     * @param book this is book object that should be added
-     * @throws Exception
+     * Add new book to storage
+     * @param book book object that should be added to storage
      */
-    void addBook(Book book);
+    void addBook(Book book)throws DataAccessException;
 
 }

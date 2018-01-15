@@ -18,7 +18,7 @@ public class PostgreSQLConnector {
     private Connection connection = null;
 
     /**
-     * This method creates and returns connection to Database
+     * creates and returns connection to Database
      * @return connection to PostgreSQL Library Database
      */
     public Connection getConnection(){

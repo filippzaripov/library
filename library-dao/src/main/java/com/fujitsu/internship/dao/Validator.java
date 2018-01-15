@@ -22,7 +22,7 @@ public class Validator {
     PostgreSQLConnector connector = new PostgreSQLConnector();
 
     /**
-     * This method is to validate name of the category by regular expression
+     * validates name of the category by regular expression
      * @param category_name name of the book category
      * @return true if valid, else - false
      */
@@ -34,7 +34,7 @@ public class Validator {
     }
 
     /**
-     * This method is to validate book name by regular expression
+     * validates book name by regular expression
      * @param book_name name of the book
      * @return true if valid, else - false
      */
@@ -84,8 +84,8 @@ public class Validator {
     }
 
     /**
-     * Validates if entered ID is correct before execute SQL request
-     * @param idFromField ID entered by user
+     * Validates if entered id is correct before execute SQL request
+     * @param idFromField id entered by user
      * @return true if valid, else - false
      */
     public boolean isIDCorrect(String idFromField){
