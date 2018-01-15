@@ -31,7 +31,8 @@ public interface BookDAO {
     void delete(long id)throws DataAccessException;
 
     /**
-     * Add new book to storage
+     * Add new book to storage.
+     * If id wasn't found show message that book was not found.
      * @param book book object that should be added to storage
      */
     void addBook(Book book)throws DataAccessException;

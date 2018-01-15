@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * Servlet class that processes requests for finding book in database
+ *
  * @author Filipp Zaripov
  */
 public class FindBookByIDServlet extends HttpServlet {
@@ -28,12 +29,12 @@ public class FindBookByIDServlet extends HttpServlet {
             Long id = Long.parseLong(idFromField);
             bookList.add(bookDAO.getBook(id));
             req.setAttribute("bookList", bookList);
-        }else{
+        } else {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
         }
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
-        requestDispatcher.forward(req,resp);
+        requestDispatcher.forward(req, resp);
 
     }
 
