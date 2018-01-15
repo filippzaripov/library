@@ -4,9 +4,12 @@ import com.fujitsu.internship.dao.BookDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.fujitsu.internship.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /**
  * This class implements BookDAO interface and manipulates with Database
  * @see com.fujitsu.internship.dao.BookDAO
@@ -41,9 +44,9 @@ public class PostgreSQLBookDAO implements BookDAO {
             return book;
     }
 
-    public ArrayList<Book> getAll(){
+    public List<Book> getAll(){
         Connection connection = connector.getConnection();
-        ArrayList<Book> bookList = new ArrayList();
+        List<Book> bookList = new ArrayList();
         try {
             PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name FROM books");
             ResultSet rs = stmt.executeQuery();
