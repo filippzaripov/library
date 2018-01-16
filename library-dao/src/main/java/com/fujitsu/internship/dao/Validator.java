@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -73,17 +74,15 @@ public class Validator {
                     return true;
                 }
             } catch (NullPointerException e) {
-                log.error("Category name is not correct");
-                return false;
+                throw new DataAccessException("Category name is not correct", e);
             }
         } catch (SQLException e) {
-            log.error("SQL Exception while validate new book data", e);
-            return false;
+            throw new DataAccessException("SQL Exception while validate new book data", e);
         } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
-                log.error("SQL Exception while close connection while validate new book data");
+                 throw new DataAccessException("SQL Exception while close connection while validate new book data", e);
             }
         }
         return false;
@@ -117,20 +116,18 @@ public class Validator {
                             }
                         }
                     } catch (SQLException e) {
-                        log.error("SQL Exception while checking ID", e);
-                        return false;
+                        throw new DataAccessException("SQL Exception while checking ID", e);
                     }
                 } else {
                     return false;
                 }
             } catch (NullPointerException e) {
-                log.error("ID for deletion is null!");
-                return false;
+                throw new DataAccessException("ID for deletion is null!", e);
             } finally {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    log.error("SQL Exception while close connection while validate ID of the book", e);
+                    throw new DataAccessException("SQL Exception while close connection while validate ID of the book", e);
                 }
             }
         }
