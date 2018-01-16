@@ -21,7 +21,7 @@ public class TestServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PostgreSQLConnector connector = new PostgreSQLConnector();
+        PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
         Connection connection = connector.getConnection();
         ArrayList<Book> books = new ArrayList();
         List<Book> testList = new LinkedList();

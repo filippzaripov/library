@@ -44,7 +44,7 @@ public class PostgreSQLConnector {
         Properties prop = new Properties();
         InputStream input = null;
         try {
-            input = new FileInputStream("jdbc.properties");
+            input = new FileInputStream("library-dao/src/main/resources/jdbc.properties");
             prop.load(input);
             Class.forName(prop.getProperty("database.driver"));
             String url = prop.getProperty("database.url");
