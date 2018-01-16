@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fujitsu.internship.dao.DataAccessException;
 import com.fujitsu.internship.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +35,12 @@ public class PostgreSQLBookDAO implements BookDAO {
             rs.close();
             stmt.close();
         } catch (SQLException e) {
-            log.error("SQL Exception while getting book", e);
+            throw new DataAccessException("SQL Exception while getting book",e);
         } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
-                log.error("SQL Exception while closing connection and get book", e);
+                throw new DataAccessException("SQL Exception while closing connection and get book", e);
             }
         }
         return book;
@@ -57,12 +58,12 @@ public class PostgreSQLBookDAO implements BookDAO {
             rs.close();
             stmt.close();
         } catch (SQLException e) {
-            log.error("SQL Exception while get all books", e);
+            throw new DataAccessException("SQL Exception while get all books", e);
         } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
-                log.error("SQL Exception while closing connection", e);
+                throw new DataAccessException("SQL Exception while closing connection", e);
             }
         }
         return bookList;
@@ -78,12 +79,12 @@ public class PostgreSQLBookDAO implements BookDAO {
             stmt.close();
             log.info("Book '{}' was removed", book);
         } catch (SQLException e) {
-            log.error("SQL Exception while delete book", e);
+            throw new DataAccessException("SQL Exception while delete book", e);
         } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
-                log.error("SQL Exception while closing connection while delete book", e);
+                throw new DataAccessException("SQL Exception while closing connection while delete book", e);
             }
         }
     }
@@ -99,13 +100,12 @@ public class PostgreSQLBookDAO implements BookDAO {
             log.info("book '{}' was added", book);
             stmt.close();
         } catch (SQLException e) {
-            System.err.println("class : PostgreSQLBookDAO, line : 77");
-            log.error("SQL Exception while adding book", e);
+            throw new DataAccessException("SQL Exception while adding book", e);
         } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
-                log.error("SQL Exception while closing connection while adding new book", e);
+                throw new DataAccessException("SQL Exception while closing connection while adding new book", e);
             }
 
         }
