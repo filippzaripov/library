@@ -12,6 +12,7 @@ import java.io.IOException;
 
 /**
  * Servlet class that processes requests for finding book
+ *
  * @author Filipp Zaripov
  */
 public class ShowAllBooksServlet extends HttpServlet {
@@ -20,7 +21,7 @@ public class ShowAllBooksServlet extends HttpServlet {
         BookDAO book = new PostgreSQLBookDAO();
         req.setAttribute("bookList", book.getAll());
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
-        requestDispatcher.forward(req,resp);
+        requestDispatcher.forward(req, resp);
     }
 
     @Override
