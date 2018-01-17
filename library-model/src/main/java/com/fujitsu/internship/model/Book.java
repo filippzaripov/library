@@ -102,7 +102,7 @@ public class Book {
         return
                 "id=" + id + ", " +
                         "name='" + name + '\'' +
-                        ", category_name='" + category_name + '\'' + " | ";
+                        ", category_name='" + category_name + '\'' ;
     }
 }
 
