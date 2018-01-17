@@ -23,7 +23,7 @@ public class Validator {
     /**
      * connector that uses to connect to Database
      */
-    PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
+    protected PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
 
     /**
      * validates name of the category by regular expression
@@ -59,31 +59,25 @@ public class Validator {
      * @return true if valid, else - false
      */
     public boolean validateNewBookField(String book_name, String category) {
-        Connection connection = connector.getConnection();
-
-        try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT category_name FROM books_cat WHERE category_name=?");
+        try (Connection connection = connector.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("SELECT category_name FROM books_cat WHERE category_name=?")) {
             stmt.setString(1, category);
             ResultSet rs = stmt.executeQuery();
             String category_name = null;
-            while (rs.next()) {
+            if (rs.next()) {
                 category_name = rs.getString("category_name");
+            }else {
+                return false;
             }
             try {
                 if (!category_name.equals(null) && categoryNameValidate(category_name) && bookNameValidate(book_name)) {
                     return true;
                 }
             } catch (NullPointerException e) {
-                throw new DataAccessException("Category name is not correct", e);
+                return false;
             }
         } catch (SQLException e) {
             throw new DataAccessException("SQL Exception while validate new book data", e);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                 throw new DataAccessException("SQL Exception while close connection while validate new book data", e);
-            }
         }
         return false;
     }
@@ -122,7 +116,7 @@ public class Validator {
                     return false;
                 }
             } catch (NullPointerException e) {
-                throw new DataAccessException("ID for deletion is null!", e);
+                return false;
             } finally {
                 try {
                     connection.close();

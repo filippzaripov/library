@@ -27,8 +27,9 @@ public interface BookDAO {
      * deletes book by id
      * if book wasn't found shows message that id isn't correct
      * @param id using for searching Book
+     * @return id of deleted book, {@code null} if none found
      */
-    void delete(long id)throws DataAccessException;
+    Long delete(long id)throws DataAccessException;
 
     /**
      * Add new book to storage.
