@@ -11,6 +11,9 @@ import com.fujitsu.internship.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.crypto.Data;
+import javax.xml.transform.Result;
+
 /**
  * This class implements BookDAO interface and manipulates with Database
  *
@@ -21,29 +24,18 @@ public class PostgreSQLBookDAO implements BookDAO {
     PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
     private static Logger log = LoggerFactory.getLogger(PostgreSQLConnector.class);
 
-    public Book getBook(long id) {
-        Connection connection = connector.getConnection();
-        Book book = null;
-        try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name FROM books WHERE ID = ?");
+    public Book getBook(long id){
+        try(Connection connection = connector.getConnection();
+            PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name FROM books WHERE ID = ?")){
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                book = new Book(rs.getInt("ID"), rs.getString("name"), rs.getString("category_name"));
-
-            }
-            rs.close();
-            stmt.close();
-        } catch (SQLException e) {
-            throw new DataAccessException("SQL Exception while getting book",e);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                throw new DataAccessException("SQL Exception while closing connection and get book", e);
-            }
+            return rs.next()? createBook(rs) : null;
+        }catch (SQLException e){
+                throw new DataAccessException("SQL Exception while getting book",e);
         }
-        return book;
+    }
+    protected Book createBook(ResultSet rs) throws SQLException{
+        return new Book(rs.getLong("id"), rs.getString("name"), rs.getString("category_name"));
     }
 
     public List<Book> getAll() {
