@@ -39,14 +39,12 @@ public class PostgreSQLConnector {
         return localConnector;
     }
 
-    public Connection getConnection() {
+    public Connection getConnection(){
         Connection connection = null;
         Properties prop = new Properties();
         InputStream input = null;
         try {
-           // input = new FileInputStream("library-dao/src/main/resources/jdbc.properties");
-            input = new FileInputStream("C:\\IdeaProjects\\library\\library-dao\\src\\main\\resources\\jdbc.properties");
-            prop.load(input);
+            prop.load(getClass().getResourceAsStream("/jdbc.properties"));
             Class.forName(prop.getProperty("database.driver"));
             String url = prop.getProperty("database.url");
             String login = prop.getProperty("database.login");
@@ -59,6 +57,14 @@ public class PostgreSQLConnector {
             log.error("Please check jdbc.properties file", e);
         } catch (SQLException e) {
             throw new DataAccessException("Could not connect to PostgreSQL DB", e);
+        } finally {
+            if(input != null){
+                try {
+                    input.close();
+                }catch (IOException e){
+                    throw new DataAccessException("Exception while closing connection to jdbc.properties", e);
+                }
+            }
         }
         return connection;
     }

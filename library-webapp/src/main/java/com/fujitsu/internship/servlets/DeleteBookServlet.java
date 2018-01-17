@@ -25,8 +25,8 @@ public class DeleteBookServlet extends HttpServlet {
         if (validator.isIDCorrect(idFromField)) {
             Long id = Long.parseLong(idFromField);
             String name = bookDAO.getBook(id).getName();
-            bookDAO.delete(id);
-            req.setAttribute("result", "Book " + name + " was removed from database");
+            Long idOfDeletedBook = bookDAO.delete(id);
+            req.setAttribute("result", "Book Name: '" + name + "' with ID: '" + idOfDeletedBook + "' was removed from database");
         } else {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
         }
