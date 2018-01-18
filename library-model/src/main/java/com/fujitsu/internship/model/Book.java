@@ -17,17 +17,17 @@ public class Book {
     /**
      * Field for book category name
      */
-    private String category_name;
+    private String categoryName;
 
     /**
      * Constructor that creates Book object
      *
      * @param name          Name of the Book
-     * @param category_name Category of the Book
+     * @param categoryName Category of the Book
      */
-    public Book(String name, String category_name) {
+    public Book(String name, String categoryName) {
         setName(name);
-        setCategory_name(category_name);
+        setCategoryName(categoryName);
     }
 
     /**
@@ -35,12 +35,12 @@ public class Book {
      *
      * @param id            id of the Book
      * @param name          Name of the Book
-     * @param category_name Category of the Book
+     * @param categoryName Category of the Book
      */
-    public Book(long id, String name, String category_name) {
+    public Book(long id, String name, String categoryName) {
         setId(id);
         setName(name);
-        setCategory_name(category_name);
+        setCategoryName(categoryName);
     }
 
     /**
@@ -84,17 +84,17 @@ public class Book {
      *
      * @return name of the category
      */
-    public String getCategory_name() {
-        return category_name;
+    public String getCategoryName() {
+        return categoryName;
     }
 
     /**
      * change name of the category of book
      *
-     * @param category_name name of the category that should be set for Book
+     * @param categoryName name of the category that should be set for Book
      */
-    public void setCategory_name(String category_name) {
-        this.category_name = category_name;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     @Override
@@ -102,7 +102,7 @@ public class Book {
         return
                 "id=" + id + ", " +
                         "name='" + name + '\'' +
-                        ", category_name='" + category_name + '\'' ;
+                        ", categoryName='" + categoryName + '\'' ;
     }
 }
 

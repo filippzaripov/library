@@ -3,7 +3,8 @@ package com.fujitsu.internship.servlets;
 import com.fujitsu.internship.dao.BookDAO;
 import com.fujitsu.internship.dao.Validator;
 import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
-
+import com.fujitsu.internship.model.Book;
+import org.apache.commons.lang3.StringUtils;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,12 +23,16 @@ public class DeleteBookServlet extends HttpServlet {
         Validator validator = new Validator();
         BookDAO bookDAO = new PostgreSQLBookDAO();
         String idFromField = req.getParameter("ID_to_delete");
-        if (validator.isIDCorrect(idFromField)) {
+        if (StringUtils.isNumeric(idFromField)) {
             Long id = Long.parseLong(idFromField);
-            String name = bookDAO.getBook(id).getName();
+            Book book  = bookDAO.getBook(id);
             Long idOfDeletedBook = bookDAO.delete(id);
-            req.setAttribute("result", "Book Name: '" + name + "' with ID: '" + idOfDeletedBook + "' was removed from database");
-        } else {
+            if (idOfDeletedBook != null) {
+                req.setAttribute("result", "Book Name: '" + book.getName() + "' with ID: '" + book.getId() + "' was removed from database");
+            } else {
+                req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
+            }
+        }else {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
         }
 

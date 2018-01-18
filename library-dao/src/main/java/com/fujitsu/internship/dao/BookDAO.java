@@ -35,7 +35,8 @@ public interface BookDAO {
      * Add new book to storage.
      * If id wasn't found show message that book was not found.
      * @param book book object that should be added to storage
+     * @return id of added book {@code null} if book wasn't added
      */
-    void addBook(Book book)throws DataAccessException;
+    Long addBook(Book book)throws DataAccessException;
 
 }
