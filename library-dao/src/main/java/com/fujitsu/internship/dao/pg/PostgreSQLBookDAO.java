@@ -1,11 +1,9 @@
 package com.fujitsu.internship.dao.pg;
 
 import com.fujitsu.internship.dao.BookDAO;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.fujitsu.internship.dao.DataAccessException;
 import com.fujitsu.internship.model.Book;
 import org.slf4j.Logger;
@@ -59,7 +57,7 @@ public class PostgreSQLBookDAO implements BookDAO {
             Book book = getBook(id);
             if (book != null) {
                 stmt.executeUpdate();
-                log.info("Book '{}' was removed", book);
+                log.info("Book {} was removed", book);
                 return book.getId();
             } else {
                 return null;
@@ -75,7 +73,7 @@ public class PostgreSQLBookDAO implements BookDAO {
             stmt.setString(1, book.getName());
             stmt.setString(2, book.getCategory_name());
             stmt.executeUpdate();
-            log.info("book '{}' was added", book);
+            log.info("book {} was added", book);
         } catch (SQLException e) {
             throw new DataAccessException("SQL Exception while adding book", e);
         }

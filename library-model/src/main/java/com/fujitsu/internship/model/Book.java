@@ -100,9 +100,9 @@ public class Book {
     @Override
     public String toString() {
         return
-                "id=" + id + ", " +
+                "id='" + id + "', " +
                         "name='" + name + '\'' +
-                        ", category_name='" + category_name + '\'' ;
+                        ", category_name='" + category_name + "'" ;
     }
 }
 

@@ -45,10 +45,14 @@ public class Validator {
      * @return true if valid, else - false
      */
     private boolean bookNameValidate(String book_name) {
-        Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s\\?\\!\\.]+");
-        Matcher m = pattern.matcher(book_name);
+        if (book_name.length() != 0) {
+            Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s\\?\\!\\.]+");
+            Matcher m = pattern.matcher(book_name);
+            return m.matches();
+        }else{
+            return false;
+        }
 
-        return m.matches();
     }
 
     /**
@@ -58,7 +62,7 @@ public class Validator {
      * @param category  name of the book category
      * @return true if valid, else - false
      */
-    public boolean validateNewBookField(String book_name, String category) {
+    public boolean validateNewBookFields(String book_name, String category) {
         try (Connection connection = connector.getConnection();
              PreparedStatement stmt = connection.prepareStatement("SELECT category_name FROM books_cat WHERE category_name=?")) {
             stmt.setString(1, category);
@@ -66,7 +70,7 @@ public class Validator {
             String category_name = null;
             if (rs.next()) {
                 category_name = rs.getString("category_name");
-            }else {
+            } else {
                 return false;
             }
             try {

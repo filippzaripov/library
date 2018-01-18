@@ -7,23 +7,23 @@ public class ValidatorTest extends TestCase {
     @Test
     public void testValidateNewBook(){
 
-        boolean isValidate = validator.validateNewBookField(null,null);
+        boolean isValidate = validator.validateNewBookFields(null,null);
         assertFalse(isValidate);
 
-        isValidate = validator.validateNewBookField(null, "");
+        isValidate = validator.validateNewBookFields(null, "");
         assertFalse(isValidate);
 
-        isValidate = validator.validateNewBookField("",null);
+        isValidate = validator.validateNewBookFields("",null);
         assertFalse(isValidate);
 
-        isValidate = validator.validateNewBookField("","");
+        isValidate = validator.validateNewBookFields("","");
         assertFalse(isValidate);
 
-        isValidate = validator.validateNewBookField("name of the book", "nonexistent category");
+        isValidate = validator.validateNewBookFields("name of the book", "nonexistent category");
         assertFalse(isValidate);
 
         //check creating with existent category
-        isValidate = validator.validateNewBookField("name of the book", "historical");
+        isValidate = validator.validateNewBookFields("name of the book", "historical");
         assertTrue(isValidate);
     }
 

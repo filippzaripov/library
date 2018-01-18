@@ -39,20 +39,39 @@ public class PSQLBookDAOTest extends Assert {
     }
 
     @Test
-    public void testAddAndGetBook() {
+    public void testAddBook() {
         bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
         Book book = getBookByName(nameOfTestBook);
         assertNotNull(book);
+        assertEquals(book.getName(), nameOfTestBook);
         bookDAO.delete(book.getId());
+    }
+    @Test
+    public void testGetBook(){
+        bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
+        long id = getBookByName(nameOfTestBook).getId();
+        Book book = bookDAO.getBook(id);
+        assertNotNull(book);
+        assertEquals(nameOfTestBook,book.getName());
+        bookDAO.delete(book.getId());
+    }
 
+    @Test
+    public void testGetMissedBook() {
+        assertNull(bookDAO.getBook(-1));
     }
 
     @Test
     public void testDelete() {
         bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
         Book book = getBookByName(nameOfTestBook);
-        bookDAO.delete(book.getId());
+        assertEquals(book.getId(), (long) bookDAO.delete(book.getId()));
         assertNull(getBookByName(nameOfTestBook));
+    }
+
+    @Test
+    public void testDeleteMissedBook() {
+        assertNull(bookDAO.delete(-1));
     }
 
     @Test
