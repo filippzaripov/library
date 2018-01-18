@@ -8,6 +8,8 @@ import com.fujitsu.internship.dao.DataAccessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.crypto.Data;
+
 /**
  * This class creating connection to PostgreSQL Database
  *
@@ -17,8 +19,28 @@ import org.slf4j.LoggerFactory;
 public class PostgreSQLConnector {
     private static Logger log = LoggerFactory.getLogger(PostgreSQLConnector.class);
     private static volatile PostgreSQLConnector connector;
+    private String url;
+    private String login;
+    private String password;
 
+    /**
+     * Initialise JDBC driver
+     */
     private PostgreSQLConnector() {
+        Properties prop = new Properties();
+        try {
+            prop.load(getClass().getResourceAsStream("/jdbc.properties"));
+            Class.forName(prop.getProperty("database.driver"));
+            this.url = prop.getProperty("database.url");
+            this.login = prop.getProperty("database.login");
+            this.password = prop.getProperty("database.password");
+        } catch (IOException e) {
+            log.error("Please check jdbc.properties file", e);
+            throw new DataAccessException("Please check database driver", e);
+        } catch (ClassNotFoundException e) {
+            log.error("Please check database driver", e);
+            throw new DataAccessException("Please check database driver", e);
+        }
     }
 
     /**
@@ -39,33 +61,17 @@ public class PostgreSQLConnector {
         return localConnector;
     }
 
-    public Connection getConnection(){
+    /**
+     * @return connection to Database. All unused connections should be closed.
+     * @throws SQLException if connection wasn't successful
+     */
+    public Connection getConnection() {
         Connection connection = null;
-        Properties prop = new Properties();
-        InputStream input = null;
         try {
-            prop.load(getClass().getResourceAsStream("/jdbc.properties"));
-            Class.forName(prop.getProperty("database.driver"));
-            String url = prop.getProperty("database.url");
-            String login = prop.getProperty("database.login");
-            String password = prop.getProperty("database.password");
             connection = DriverManager.getConnection(url, login, password);
-
-        } catch (ClassNotFoundException e) {
-            log.error("Please check database driver", e);
-        } catch (IOException e) {
-            log.error("Please check jdbc.properties file", e);
-        } catch (SQLException e) {
+            return connection;
+        }catch(SQLException e){
             throw new DataAccessException("Could not connect to PostgreSQL DB", e);
-        } finally {
-            if(input != null){
-                try {
-                    input.close();
-                }catch (IOException e){
-                    throw new DataAccessException("Exception while closing connection to jdbc.properties", e);
-                }
-            }
         }
-        return connection;
     }
 }
