@@ -1,11 +1,9 @@
 package com.fujitsu.internship.dao.pg;
 
 import com.fujitsu.internship.dao.BookDAO;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.fujitsu.internship.dao.DataAccessException;
 import com.fujitsu.internship.dao.Validator;
 import com.fujitsu.internship.model.Book;
