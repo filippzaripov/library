@@ -9,25 +9,13 @@ public class ValidatorTest extends Assert {
 
     @Test
     public void testValidateNewBook() {
-
-        boolean isValidate = validator.validateNewBookField(null, null);
-        assertFalse(isValidate);
-
-        isValidate = validator.validateNewBookField(null, "");
-        assertFalse(isValidate);
-
-        isValidate = validator.validateNewBookField("", null);
-        assertFalse(isValidate);
-
-        isValidate = validator.validateNewBookField("", "");
-        assertFalse(isValidate);
-
-        isValidate = validator.validateNewBookField("name of the book", "nonexistent category");
-        assertFalse(isValidate);
-
+        assertFalse(validator.validateNewBookField(null, null));
+        assertFalse(validator.validateNewBookField(null, ""));
+        assertFalse(validator.validateNewBookField("", null));
+        assertFalse(validator.validateNewBookField("", ""));
+        assertFalse(validator.validateNewBookField("name of the book", "nonexistent category"));
         //check creating with existent category
-        isValidate = validator.validateNewBookField("name of the book", "historical");
-        assertTrue(isValidate);
+        assertTrue(validator.validateNewBookField("name of the book", "historical"));
     }
 
     @Test

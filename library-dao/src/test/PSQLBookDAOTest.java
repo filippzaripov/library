@@ -13,19 +13,8 @@ import java.sql.*;
 public class PSQLBookDAOTest extends Assert {
     private BookDAO bookDAO = new PostgreSQLBookDAO();
     protected PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
-    private String nameOfTestCategory = "test_category";
-    private String nameOfTestBook = "test_name_that_nobody_never_write";
-
-    private Book getBookByName(String name) {
-        try (Connection connection = connector.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("SELECT id, name, category_name FROM books WHERE name = ?")) {
-            stmt.setString(1, name);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next() ? new Book(rs.getLong("id"), rs.getString("name"), rs.getString("category_name")) : null;
-        } catch (SQLException e) {
-            throw new DataAccessException("SQL Exception while get book be name test", e);
-        }
-    }
+    private String nameOfTestCategory = "test category";
+    private String nameOfTestBook = "test name that nobody never write";
 
     @Before
     public void setUpNewBooksCategory() {
@@ -40,19 +29,24 @@ public class PSQLBookDAOTest extends Assert {
 
     @Test
     public void testAddBook() {
-        bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
-        Book book = getBookByName(nameOfTestBook);
-        assertNotNull(book);
+        Long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
+        assertNotNull(id);
+        Book book = bookDAO.getBook(id);
         assertEquals(book.getName(), nameOfTestBook);
         bookDAO.delete(book.getId());
     }
+
     @Test
-    public void testGetBook(){
-        bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
-        long id = getBookByName(nameOfTestBook).getId();
+    public void testAddEmptyBook(){
+        assertNull(bookDAO.addBook(new Book("","")));
+    }
+
+    @Test
+    public void testGetBook() {
+        long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
         Book book = bookDAO.getBook(id);
         assertNotNull(book);
-        assertEquals(nameOfTestBook,book.getName());
+        assertEquals(nameOfTestBook, book.getName());
         bookDAO.delete(book.getId());
     }
 
@@ -63,10 +57,10 @@ public class PSQLBookDAOTest extends Assert {
 
     @Test
     public void testDelete() {
-        bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
-        Book book = getBookByName(nameOfTestBook);
+       Long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
+        Book book = bookDAO.getBook(id);
         assertEquals(book.getId(), (long) bookDAO.delete(book.getId()));
-        assertNull(getBookByName(nameOfTestBook));
+        assertNull(bookDAO.getBook(id));
     }
 
     @Test
@@ -76,9 +70,9 @@ public class PSQLBookDAOTest extends Assert {
 
     @Test
     public void testGetAll() {
-        bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
+       Long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
         assertNotNull(bookDAO.getAll());
-        bookDAO.delete(getBookByName(nameOfTestBook).getId());
+        bookDAO.delete(id);
     }
 
     @After

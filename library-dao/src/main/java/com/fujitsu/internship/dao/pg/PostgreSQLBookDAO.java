@@ -94,13 +94,13 @@ public class PostgreSQLBookDAO implements BookDAO {
                 stmt.setString(1, book.getName());
                 stmt.setString(2, book.getCategoryName());
                 stmt.executeUpdate();
-                log.info("book '{}' was added", book);
+                log.info("book {} was added", book);
                 return (getBookByName(book.getName()).getId());
             } catch (SQLException e) {
                 throw new DataAccessException("SQL Exception while adding book", e);
             }
         } else {
-            log.error("book '{}' was not added. Name or category is not correct", book);
+            log.error("book {} was not added. Name or category is not correct", book);
             return null;
         }
     }
