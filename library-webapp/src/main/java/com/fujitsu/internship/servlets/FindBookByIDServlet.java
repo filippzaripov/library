@@ -1,10 +1,9 @@
 package com.fujitsu.internship.servlets;
 
 import com.fujitsu.internship.dao.BookDAO;
-import com.fujitsu.internship.dao.Validator;
 import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
 import com.fujitsu.internship.model.Book;
-
+import org.apache.commons.lang3.StringUtils;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,18 +23,20 @@ public class FindBookByIDServlet extends HttpServlet {
         ArrayList<Book> bookList = new ArrayList();
         String idFromField = req.getParameter("id");
         BookDAO bookDAO = new PostgreSQLBookDAO();
-        Validator validator = new Validator();
-        if (validator.isIDCorrect(idFromField)) {
+        if (StringUtils.isNumeric(idFromField)) {
             Long id = Long.parseLong(idFromField);
-            bookList.add(bookDAO.getBook(id));
-            req.setAttribute("bookList", bookList);
+            Book book = bookDAO.getBook(id);
+            if (book != null) {
+                bookList.add(book);
+                req.setAttribute("bookList", bookList);
+            } else {
+                req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
+            }
         } else {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
         }
-
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req, resp);
-
     }
 
     @Override

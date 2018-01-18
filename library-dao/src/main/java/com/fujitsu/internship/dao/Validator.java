@@ -32,33 +32,31 @@ public class Validator {
      * @return true if valid, else - false
      */
     private boolean categoryNameValidate(String category_name) {
-        Pattern pattern = Pattern.compile("^[a-zA-Z]+");
+        Pattern pattern = Pattern.compile("^[a-zA-Z\\s]+");
         Matcher m = pattern.matcher(category_name);
-
         return m.matches();
     }
 
     /**
      * validates book name by regular expression
      *
-     * @param book_name name of the book
+     * @param bookName name of the book
      * @return true if valid, else - false
      */
-    private boolean bookNameValidate(String book_name) {
+    private boolean bookNameValidate(String bookName) {
         Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s\\?\\!\\.]+");
-        Matcher m = pattern.matcher(book_name);
-
+        Matcher m = pattern.matcher(bookName);
         return m.matches();
     }
 
     /**
      * Validates input parameters before creating new book
      *
-     * @param book_name name of the book
+     * @param bookName name of the book
      * @param category  name of the book category
      * @return true if valid, else - false
      */
-    public boolean validateNewBookField(String book_name, String category) {
+    public boolean validateNewBookField(String bookName, String category) {
         try (Connection connection = connector.getConnection();
              PreparedStatement stmt = connection.prepareStatement("SELECT category_name FROM books_cat WHERE category_name=?")) {
             stmt.setString(1, category);
@@ -66,11 +64,11 @@ public class Validator {
             String category_name = null;
             if (rs.next()) {
                 category_name = rs.getString("category_name");
-            }else {
+            } else {
                 return false;
             }
             try {
-                if (!category_name.equals(null) && categoryNameValidate(category_name) && bookNameValidate(book_name)) {
+                if (!category_name.equals(null) && categoryNameValidate(category_name) && bookNameValidate(bookName)) {
                     return true;
                 }
             } catch (NullPointerException e) {
@@ -88,43 +86,34 @@ public class Validator {
      * @param idFromField id entered by user
      * @return true if valid, else - false
      */
-    public boolean isIDCorrect(String idFromField) {
-        Connection connection = connector.getConnection();
-        if (StringUtils.isNumeric(idFromField)) {
-            Long id = Long.parseLong(idFromField);
-            try {
-                if (id > 0 && id < 9223372036854775807L) {
-                    try {
-                        PreparedStatement stmt = connection.prepareStatement("SELECT id FROM books WHERE id = ?");
-                        stmt.setLong(1, id);
-                        ResultSet rs = stmt.executeQuery();
-                        long idFromBookDB = -1;
-                        if (!rs.isBeforeFirst()) {
-                            return false;
-                        } else {
-                            while (rs.next()) {
-                                idFromBookDB = rs.getLong("id");
-                            }
-                            if (idFromBookDB == id) {
-                                return true;
-                            }
-                        }
-                    } catch (SQLException e) {
-                        throw new DataAccessException("SQL Exception while checking ID", e);
-                    }
-                } else {
-                    return false;
-                }
-            } catch (NullPointerException e) {
-                return false;
-            } finally {
+    public boolean isIDCorrect(Long idFromField) {
+        try (Connection connection = connector.getConnection()) {
+            if (idFromField > 0 && idFromField < 9223372036854775807L) {
                 try {
-                    connection.close();
+                    PreparedStatement stmt = connection.prepareStatement("SELECT id FROM books WHERE id = ?");
+                    stmt.setLong(1, idFromField);
+                    ResultSet rs = stmt.executeQuery();
+                    long idFromBookDB = -1;
+                    if (rs.next()) {
+                        idFromBookDB = rs.getLong("id");
+                        if (idFromBookDB == idFromField){
+                            return true;
+                        }
+                    } else {
+                        return false;
+                    }
                 } catch (SQLException e) {
-                    throw new DataAccessException("SQL Exception while close connection while validate ID of the book", e);
+                    throw new DataAccessException("SQL Exception while checking ID", e);
                 }
+            } else {
+                return false;
             }
+        } catch (NullPointerException e) {
+            return false;
+        } catch (SQLException e){
+            throw new DataAccessException("SQL Exception while close connection while validate ID of the book", e);
         }
+
         return false;
     }
 }

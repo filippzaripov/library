@@ -26,7 +26,7 @@
             <tr>
                 <td><c:out value="${books.id}"/> </td>
                 <td><c:out value="${books.name}"/></td>
-                <td><c:out value="${books.category_name}"/></td>
+                <td><c:out value="${books.categoryName}"/></td>
             </tr>
         </c:forEach>
     </table>
@@ -42,7 +42,7 @@
     <H3>Please fill this form to add new book</H3>
     <form action="add_book">
         <input type="text" name="name" value="name of the book" onfocus="if (this.value == 'name of the book') {this.value = '';}" onblur="if (this.value == '') {this.value = 'name of the book';}"/>
-        <input type="text" name="category_name" value="book category" onfocus="if (this.value == 'book category') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book category';}"/>
+        <input type="text" name="categoryName" value="book category" onfocus="if (this.value == 'book category') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book category';}"/>
         <input type="submit" value="ADD BOOK"/>
     </form>
     <H3>Please enter id of the book that you want to delete</H3>

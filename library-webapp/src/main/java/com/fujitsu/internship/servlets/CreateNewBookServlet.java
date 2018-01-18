@@ -22,16 +22,13 @@ public class CreateNewBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookDAO bookDAO = new PostgreSQLBookDAO();
         String name = req.getParameter("name");
-        String category = req.getParameter("category_name");
-        Validator validator = new Validator();
-        if (validator.validateNewBookField(name, category)) {
-            bookDAO.addBook(new Book(name, category));
+        String category = req.getParameter("categoryName");
+        Long id = bookDAO.addBook(new Book(name, category));
+        if (id != null) {
             req.setAttribute("result", "Book " + name + " was added to database");
         } else {
             req.setAttribute("result", "Book name or category is not correct");
         }
-
-
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req, resp);
     }
