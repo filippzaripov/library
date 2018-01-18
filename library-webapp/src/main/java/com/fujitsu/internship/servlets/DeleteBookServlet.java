@@ -26,8 +26,7 @@ public class DeleteBookServlet extends HttpServlet {
         if (StringUtils.isNumeric(idFromField)) {
             Long id = Long.parseLong(idFromField);
             Book book  = bookDAO.getBook(id);
-            Long idOfDeletedBook = bookDAO.delete(id);
-            if (idOfDeletedBook != null) {
+            if (bookDAO.delete(id)) {
                 req.setAttribute("result", "Book Name: '" + book.getName() + "' with ID: '" + book.getId() + "' was removed from database");
             } else {
                 req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");

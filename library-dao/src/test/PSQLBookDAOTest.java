@@ -59,13 +59,13 @@ public class PSQLBookDAOTest extends Assert {
     public void testDelete() {
        Long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
         Book book = bookDAO.getBook(id);
-        assertEquals(book.getId(), (long) bookDAO.delete(book.getId()));
+        assertTrue(bookDAO.delete(book.getId()));
         assertNull(bookDAO.getBook(id));
     }
 
     @Test
     public void testDeleteMissedBook() {
-        assertNull(bookDAO.delete(-1));
+        assertFalse(bookDAO.delete(-1));
     }
 
     @Test

@@ -1,14 +1,18 @@
 package com.fujitsu.internship.dao.pg;
 
 import com.fujitsu.internship.dao.BookDAO;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.fujitsu.internship.dao.DataAccessException;
 import com.fujitsu.internship.dao.Validator;
 import com.fujitsu.internship.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.xml.crypto.Data;
 
 /**
  * This class implements BookDAO interface and manipulates with Database
@@ -60,13 +64,13 @@ public class PostgreSQLBookDAO implements BookDAO {
             while (rs.next()) {
                 bookList.add(new Book(rs.getLong("id"), rs.getString("name"), rs.getString("category_name")));
             }
-            return !bookList.isEmpty() ? bookList : null;
         } catch (SQLException e) {
             throw new DataAccessException("SQL Exception while get all books", e);
         }
+        return bookList;
     }
 
-    public Long delete(long id) {
+    public boolean delete(long id) {
         if (validator.isIDCorrect(id)) {
             try (Connection connection = connector.getConnection();
                  PreparedStatement stmt = connection.prepareStatement("DELETE FROM books WHERE ID = ?")) {
@@ -75,15 +79,15 @@ public class PostgreSQLBookDAO implements BookDAO {
                 if (book != null) {
                     stmt.executeUpdate();
                     log.info("Book {} was removed", book);
-                    return book.getId();
+                    return true;
                 } else {
-                    return null;
+                    return false;
                 }
             } catch (SQLException e) {
                 throw new DataAccessException("SQL Exception while delete book", e);
             }
-        }else {
-            return null;
+        } else {
+            return false;
         }
     }
 
