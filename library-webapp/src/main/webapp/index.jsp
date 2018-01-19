@@ -47,7 +47,7 @@
     </form>
     <H3>Please enter id of the book that you want to delete</H3>
     <form action="delete_book">
-        <input type="number" name="ID_to_delete" value="book id" onfocus="if (this.value == 'book id') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book id';}"/>
+        <input type="number" name="ID_to_delete" min="1" max="9223372036854775807" value="book id" onfocus="if (this.value == 'book id') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book id';}"/>
         <input type="submit" value="DELETE BOOK"/>
     </form>
     <div><c:out value="${result}"/></div>

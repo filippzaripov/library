@@ -18,6 +18,7 @@
         <module>library-dao</module>
         <module>library-model</module>
         <module>library-webapp</module>
+        <module>library-service</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -34,6 +35,11 @@
             <dependency>
                 <groupId>com.fujitsu.internship</groupId>
                 <artifactId>library-dao</artifactId>
+                <version>0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fujitsu.internship</groupId>
+                <artifactId>library-service</artifactId>
                 <version>0.1-SNAPSHOT</version>
             </dependency>
             <dependency>

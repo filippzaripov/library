@@ -4,12 +4,14 @@ import com.fujitsu.internship.dao.BookDAO;
 import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
 import com.fujitsu.internship.model.Book;
 import org.apache.commons.lang3.StringUtils;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +32,7 @@ public class FindBookByIDServlet extends HttpServlet {
                 bookList.add(book);
                 req.setAttribute("bookList", bookList);
             } else {
-                req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
+                req.setAttribute("result", "Book with this ID wasn't found.\nPlease enter correct ID.");
             }
         } else {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
