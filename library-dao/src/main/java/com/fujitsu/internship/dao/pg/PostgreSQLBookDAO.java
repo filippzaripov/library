@@ -26,7 +26,6 @@ public class PostgreSQLBookDAO implements BookDAO {
     Validator validator = new Validator();
 
     public Book getBook(long id) {
-        if (validator.isIDCorrect(id)) {
             try (Connection connection = connector.getConnection();
                  PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name FROM books WHERE ID = ?")) {
                 stmt.setLong(1, id);
@@ -35,9 +34,6 @@ public class PostgreSQLBookDAO implements BookDAO {
             } catch (SQLException e) {
                 throw new DataAccessException("SQL Exception while getting book", e);
             }
-        } else {
-            return null;
-        }
     }
 
     protected Book createBook(ResultSet rs) throws SQLException {
@@ -49,7 +45,7 @@ public class PostgreSQLBookDAO implements BookDAO {
              PreparedStatement stmt = connection.prepareStatement("SELECT id, name, category_name FROM books WHERE name = ?")) {
             stmt.setString(1, name);
             ResultSet rs = stmt.executeQuery();
-            return rs.next() ? new Book(rs.getLong("id"), rs.getString("name"), rs.getString("category_name")) : null;
+            return rs.next() ? createBook(rs) : null;
         } catch (SQLException e) {
             throw new DataAccessException("SQL Exception while get book be name test", e);
         }
@@ -71,7 +67,6 @@ public class PostgreSQLBookDAO implements BookDAO {
     }
 
     public boolean delete(long id) {
-        if (validator.isIDCorrect(id)) {
             try (Connection connection = connector.getConnection();
                  PreparedStatement stmt = connection.prepareStatement("DELETE FROM books WHERE ID = ?")) {
                 stmt.setLong(1, id);
@@ -86,9 +81,6 @@ public class PostgreSQLBookDAO implements BookDAO {
             } catch (SQLException e) {
                 throw new DataAccessException("SQL Exception while delete book", e);
             }
-        } else {
-            return false;
-        }
     }
 
     public Long addBook(Book book) {
@@ -99,7 +91,8 @@ public class PostgreSQLBookDAO implements BookDAO {
                 stmt.setString(2, book.getCategoryName());
                 stmt.executeUpdate();
                 log.info("book {} was added", book);
-                return (getBookByName(book.getName()).getId());
+                Book addedBook = getBookByName(book.getName());
+                return addedBook != null ? addedBook.getId() : null;
             } catch (SQLException e) {
                 throw new DataAccessException("SQL Exception while adding book", e);
             }
