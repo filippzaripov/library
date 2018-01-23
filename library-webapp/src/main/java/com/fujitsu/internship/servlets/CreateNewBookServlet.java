@@ -1,6 +1,8 @@
 package com.fujitsu.internship.servlets;
 
+import com.fujitsu.internship.model.Author;
 import com.fujitsu.internship.model.Book;
+import com.fujitsu.internship.model.BookCategory;
 import com.fujitsu.internship.service.BookService;
 import com.fujitsu.internship.service.BookServiceImplementation;
 
@@ -21,8 +23,9 @@ public class CreateNewBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookService bookService = new BookServiceImplementation();
         String name = req.getParameter("name");
-        String category = req.getParameter("categoryName");
-        Book book = bookService.createBook(new Book(name, category));
+        Author author = new Author(req.getParameter("author"));
+        BookCategory category = new BookCategory(req.getParameter("categoryName"));
+        Book book = bookService.createBook(new Book(name, category, author));
         if (book != null) {
             req.setAttribute("result", "Book '" + name + "' was added to database");
         } else {

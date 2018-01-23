@@ -1,100 +1,86 @@
 package com.fujitsu.internship.model;
 
 /**
- * This class is Book object.
+ * Book object.
  *
  * @author Filipp Zaripov
  */
 public class Book {
     /**
-     * Field for book name
+     * book name
      */
     private String name;
     /**
-     * Field for book id
+     * book id
      */
     private long id;
     /**
-     * Field for book category name
+     * category name
      */
-    private String categoryName;
-
+    private BookCategory category;
     /**
-     * Constructor that creates Book object
-     *
-     * @param name          Name of the Book
-     * @param categoryName Category of the Book
+     * author of the book
      */
-    public Book(String name, String categoryName) {
+    private Author author;
+
+
+    public Book(String name, BookCategory category) {
         setName(name);
-        setCategoryName(categoryName);
+        setCategory(category);
     }
 
-    /**
-     * Constructor that creates Book object
-     *
-     * @param id            id of the Book
-     * @param name          Name of the Book
-     * @param categoryName Category of the Book
-     */
-    public Book(long id, String name, String categoryName) {
+    public Book(String name, BookCategory category, Author author) {
+        setName(name);
+        setCategory(category);
+        setAuthor(author);
+    }
+
+    public Book(long id, String name, BookCategory category, Author author) {
+        this.name = name;
+        this.id = id;
+        this.category = category;
+        this.author = author;
+    }
+
+    public Book(long id, String name, BookCategory category) {
         setId(id);
         setName(name);
-        setCategoryName(categoryName);
+        setCategory(category);
     }
 
-    /**
-     * Method returns name of the Book
-     *
-     * @return name of the book
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Set name of the book
-     *
-     * @param name Name of the book that should be changed
-     */
+
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Get id of the Book
-     *
-     * @return id of the Book
-     */
+
     public long getId() {
         return id;
     }
 
-    /**
-     * Set id of the Book
-     *
-     * @param id id of the book that should be changed
-     */
+
     public void setId(long id) {
         this.id = id;
     }
 
-    /**
-     * Shows name of the category of book
-     *
-     * @return name of the category
-     */
-    public String getCategoryName() {
-        return categoryName;
+    public BookCategory getCategory() {
+        return category;
     }
 
-    /**
-     * change name of the category of book
-     *
-     * @param categoryName name of the category that should be set for Book
-     */
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategory(BookCategory category) {
+        this.category = category;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     @Override
@@ -102,7 +88,7 @@ public class Book {
         return
                 "id='" + id + "', " +
                         "name='" + name + '\'' +
-                        ", categoryName='" + categoryName + '\'' ;
+                        ", category='" + category.toString() + '\'';
     }
 }
 

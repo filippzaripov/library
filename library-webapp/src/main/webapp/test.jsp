@@ -27,7 +27,7 @@
             <tr>
                 <td><c:out value="${books.id}"/> </td>
                 <td><c:out value="${books.name}"/></td>
-                <td><c:out value="${books.categoryName}"/></td>
+                <td><c:out value="${books.category}"/></td>
             </tr>
         </c:forEach>
     </table>

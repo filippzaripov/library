@@ -20,13 +20,15 @@
             <th>ID</th>
             <th>Name</th>
             <th>Category</th>
+            <th>Author</th>
         </tr>
 
         <c:forEach items="${bookList}" var="books">
             <tr>
                 <td><c:out value="${books.id}"/> </td>
                 <td><c:out value="${books.name}"/></td>
-                <td><c:out value="${books.categoryName}"/></td>
+                <td><c:out value="${books.category.getName()}"/></td>
+                <td><c:out value="${books.author.getName()}"/></td>
             </tr>
         </c:forEach>
     </table>
@@ -42,6 +44,7 @@
     <H3>Please fill this form to add new book</H3>
     <form action="add_book">
         <input type="text" name="name" value="name of the book" onfocus="if (this.value == 'name of the book') {this.value = '';}" onblur="if (this.value == '') {this.value = 'name of the book';}"/>
+        <input type="text" name="author" value="author"onfocus="if (this.value == 'author') {this.value = '';}" onblur="if (this.value == '') {this.value = 'author';}"/>
         <input type="text" name="categoryName" value="book category" onfocus="if (this.value == 'book category') {this.value = '';}" onblur="if (this.value == '') {this.value = 'book category';}"/>
         <input type="submit" value="ADD BOOK"/>
     </form>
