@@ -1,9 +1,8 @@
 package com.fujitsu.internship.servlets;
 
-import com.fujitsu.internship.dao.BookDAO;
-import com.fujitsu.internship.dao.Validator;
-import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
 import com.fujitsu.internship.model.Book;
+import com.fujitsu.internship.service.BookService;
+import com.fujitsu.internship.service.BookServiceImplementation;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,12 +19,12 @@ import java.io.IOException;
 public class CreateNewBookServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BookDAO bookDAO = new PostgreSQLBookDAO();
+        BookService bookService = new BookServiceImplementation();
         String name = req.getParameter("name");
         String category = req.getParameter("categoryName");
-        Long id = bookDAO.addBook(new Book(name, category));
-        if (id != null) {
-            req.setAttribute("result", "Book " + name + " was added to database");
+        Book book = bookService.createBook(new Book(name, category));
+        if (book != null) {
+            req.setAttribute("result", "Book '" + name + "' was added to database");
         } else {
             req.setAttribute("result", "Book name or category is not correct");
         }

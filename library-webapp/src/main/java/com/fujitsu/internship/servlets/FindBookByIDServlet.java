@@ -1,10 +1,9 @@
 package com.fujitsu.internship.servlets;
 
-import com.fujitsu.internship.dao.BookDAO;
-import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
 import com.fujitsu.internship.model.Book;
+import com.fujitsu.internship.service.BookService;
+import com.fujitsu.internship.service.BookServiceImplementation;
 import org.apache.commons.lang3.StringUtils;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,10 +23,10 @@ public class FindBookByIDServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArrayList<Book> bookList = new ArrayList();
         String idFromField = req.getParameter("id");
-        BookDAO bookDAO = new PostgreSQLBookDAO();
+        BookService bookService = new BookServiceImplementation();
         if (StringUtils.isNumeric(idFromField)) {
             Long id = Long.parseLong(idFromField);
-            Book book = bookDAO.getBook(id);
+            Book book = bookService.getBook(id);
             if (book != null) {
                 bookList.add(book);
                 req.setAttribute("bookList", bookList);

@@ -1,7 +1,5 @@
-import com.fujitsu.internship.dao.Validator;
-import junit.framework.TestCase;
+import com.fujitsu.internship.service.Validator;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class ValidatorTest extends Assert {

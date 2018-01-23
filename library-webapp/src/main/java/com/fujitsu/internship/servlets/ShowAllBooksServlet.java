@@ -1,8 +1,7 @@
 package com.fujitsu.internship.servlets;
 
-import com.fujitsu.internship.dao.BookDAO;
-import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
-
+import com.fujitsu.internship.service.BookService;
+import com.fujitsu.internship.service.BookServiceImplementation;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +17,8 @@ import java.io.IOException;
 public class ShowAllBooksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BookDAO book = new PostgreSQLBookDAO();
-        req.setAttribute("bookList", book.getAll());
+        BookService bookService = new BookServiceImplementation();
+        req.setAttribute("bookList", bookService.getAllBooks());
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req, resp);
     }

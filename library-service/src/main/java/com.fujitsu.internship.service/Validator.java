@@ -1,11 +1,10 @@
-package com.fujitsu.internship.dao;
+package com.fujitsu.internship.service;
 
+import com.fujitsu.internship.dao.DataAccessException;
 import com.fujitsu.internship.dao.pg.PostgreSQLConnector;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
