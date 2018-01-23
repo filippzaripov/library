@@ -4,10 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>library-webapp</artifactId>
+    <groupId>com.fujitsu.internship</groupId>
+    <artifactId>library-service</artifactId>
     <version>0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-
     <parent>
         <groupId>com.fujitsu.internship</groupId>
         <artifactId>library</artifactId>
@@ -20,20 +19,12 @@
         </dependency>
         <dependency>
             <groupId>com.fujitsu.internship</groupId>
-            <artifactId>library-service</artifactId>
+            <artifactId>library-model</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
+
 </project>

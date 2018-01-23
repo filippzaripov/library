@@ -1,10 +1,10 @@
 package com.fujitsu.internship.servlets;
 
-import com.fujitsu.internship.dao.BookDAO;
-import com.fujitsu.internship.dao.Validator;
-import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
 import com.fujitsu.internship.model.Book;
+import com.fujitsu.internship.service.BookService;
+import com.fujitsu.internship.service.BookServiceImplementation;
 import org.apache.commons.lang3.StringUtils;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,18 +20,17 @@ import java.io.IOException;
 public class DeleteBookServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Validator validator = new Validator();
-        BookDAO bookDAO = new PostgreSQLBookDAO();
+        BookService bookService = new BookServiceImplementation();
         String idFromField = req.getParameter("ID_to_delete");
         if (StringUtils.isNumeric(idFromField)) {
             Long id = Long.parseLong(idFromField);
-            Book book  = bookDAO.getBook(id);
-            if (bookDAO.delete(id)) {
+            Book book = bookService.getBook(id);
+            if (bookService.deleteBook(id)) {
                 req.setAttribute("result", "Book Name: '" + book.getName() + "' with ID: '" + book.getId() + "' was removed from database");
             } else {
                 req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
             }
-        }else {
+        } else {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
         }
 

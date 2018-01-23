@@ -1,21 +1,22 @@
-import com.fujitsu.internship.dao.BookDAO;
 import com.fujitsu.internship.dao.DataAccessException;
-import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
 import com.fujitsu.internship.dao.pg.PostgreSQLConnector;
 import com.fujitsu.internship.model.Book;
-import org.junit.*;
+import com.fujitsu.internship.service.BookService;
+import com.fujitsu.internship.service.BookServiceImplementation;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-/**
- * Test for PostgreSQLBookDAO class
- */
-@Ignore
-public class PSQLBookDAOTest extends Assert {
-    private BookDAO bookDAO = new PostgreSQLBookDAO();
-    protected PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
+public class BookServiceImplementationTest extends Assert {
+    PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
     private String nameOfTestCategory = "test category";
     private String nameOfTestBook = "test name that nobody never write";
+    protected BookService bookService = new BookServiceImplementation();
 
     @Before
     public void setUpNewBooksCategory() {
@@ -30,41 +31,42 @@ public class PSQLBookDAOTest extends Assert {
 
     @Test
     public void testAddBook() {
-        Long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
-        assertNotNull(id);
-        Book book = bookDAO.getBook(id);
+        Book book = bookService.createBook(new Book(nameOfTestBook, nameOfTestCategory));
+        assertNotNull(book.getId());
         assertEquals(book.getName(), nameOfTestBook);
-        bookDAO.delete(book.getId());
+        bookService.deleteBook(book.getId());
     }
 
+    @Test
+    public void testAddEmptyBook(){
+        assertNull(bookService.createBook(new Book("","")));
+    }
 
     @Test
     public void testGetBook() {
-        long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
-        Book book = bookDAO.getBook(id);
+        Book book = bookService.createBook(new Book(nameOfTestBook, nameOfTestCategory));
         assertNotNull(book);
         assertEquals(nameOfTestBook, book.getName());
-        bookDAO.delete(book.getId());
+        bookService.deleteBook(book.getId());
     }
 
     @Test
     public void testGetMissedBook() {
-        assertNull(bookDAO.getBook(-1));
+        assertNull(bookService.getBook(-1));
     }
 
     @Test
     public void testDelete() {
-       Long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
-        Book book = bookDAO.getBook(id);
-        assertTrue(bookDAO.delete(book.getId()));
-        assertNull(bookDAO.getBook(id));
+        Book book = bookService.createBook(new Book(nameOfTestBook, nameOfTestCategory));
+        assertTrue(bookService.deleteBook(book.getId()));
+        assertNull(bookService.getBook(book.getId()));
     }
 
     @Test
     public void testGetAll() {
-       Long id = bookDAO.addBook(new Book(nameOfTestBook, nameOfTestCategory));
-        assertNotNull(bookDAO.getAll());
-        bookDAO.delete(id);
+        Book book = bookService.createBook(new Book(nameOfTestBook, nameOfTestCategory));
+        assertNotNull(bookService.getAllBooks());
+        bookService.deleteBook(book.getId());
     }
 
     @After
