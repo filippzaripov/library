@@ -2,7 +2,9 @@ package com.fujitsu.internship.service;
 
 import com.fujitsu.internship.dao.BookDAO;
 import com.fujitsu.internship.dao.pg.PostgreSQLBookDAO;
+import com.fujitsu.internship.model.Author;
 import com.fujitsu.internship.model.Book;
+import com.fujitsu.internship.model.BookCategory;
 
 import java.util.List;
 
@@ -24,9 +26,10 @@ public class BookServiceImplementation implements BookService {
     public Book createBook(Book book) {
         long id;
         String name = book.getName();
-        String categoryName = book.getCategoryName();
-        if (validator.validateNewBookField(name, categoryName)) {
-            id = bookDAO.addBook(new Book(name, categoryName));
+        BookCategory categoryName = book.getCategory();
+        Author author = book.getAuthor();
+        if (validator.validateNewBookField(name, categoryName.getName())) {
+            id = bookDAO.addBook(new Book(name, categoryName, author));
             return getBook(id);
         } else {
             return null;
