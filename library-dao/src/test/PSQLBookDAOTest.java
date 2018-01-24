@@ -6,7 +6,9 @@ import com.fujitsu.internship.model.Book;
 import com.fujitsu.internship.model.BookCategory;
 import org.junit.*;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  * Test for PostgreSQLBookDAO class
@@ -31,9 +33,8 @@ public class PSQLBookDAOTest extends Assert {
 
     @Test
     public void testAddBook() {
-        Long id = bookDAO.addBook(new Book(nameOfTestBook, testCategory));
-        assertNotNull(id);
-        Book book = bookDAO.getBook(id);
+        Book book = bookDAO.create(new Book(nameOfTestBook, testCategory));
+        assertNotNull(book);
         assertEquals(book.getName(), nameOfTestBook);
         bookDAO.delete(book.getId());
     }
@@ -41,8 +42,7 @@ public class PSQLBookDAOTest extends Assert {
 
     @Test
     public void testGetBook() {
-        long id = bookDAO.addBook(new Book(nameOfTestBook, testCategory));
-        Book book = bookDAO.getBook(id);
+        Book book = bookDAO.create(new Book(nameOfTestBook, testCategory));
         assertNotNull(book);
         assertEquals(nameOfTestBook, book.getName());
         bookDAO.delete(book.getId());
@@ -50,22 +50,21 @@ public class PSQLBookDAOTest extends Assert {
 
     @Test
     public void testGetMissedBook() {
-        assertNull(bookDAO.getBook(-1));
+        assertNull(bookDAO.get(-1L));
     }
 
     @Test
     public void testDelete() {
-       Long id = bookDAO.addBook(new Book(nameOfTestBook, testCategory));
-        Book book = bookDAO.getBook(id);
+        Book book = bookDAO.create(new Book(nameOfTestBook, testCategory));
         assertTrue(bookDAO.delete(book.getId()));
-        assertNull(bookDAO.getBook(id));
+        assertNull(bookDAO.get(book.getId()));
     }
 
     @Test
     public void testGetAll() {
-       Long id = bookDAO.addBook(new Book(nameOfTestBook, testCategory));
+        Book book = bookDAO.create(new Book(nameOfTestBook, testCategory));
         assertNotNull(bookDAO.getAll());
-        bookDAO.delete(id);
+        bookDAO.delete(book.getId());
     }
 
     @After

@@ -1,5 +1,6 @@
 import com.fujitsu.internship.dao.DataAccessException;
 import com.fujitsu.internship.dao.pg.PostgreSQLConnector;
+import com.fujitsu.internship.model.Author;
 import com.fujitsu.internship.model.Book;
 import com.fujitsu.internship.model.BookCategory;
 import com.fujitsu.internship.service.BookService;
@@ -17,6 +18,7 @@ public class BookServiceImplementationTest extends Assert {
     PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
     private BookCategory bookCategory = new BookCategory("test category");
     private String nameOfTestBook = "test name that nobody never write";
+    private Author testAuthor = new Author("test_author");
     protected BookService bookService = new BookServiceImplementation();
 
     @Before
@@ -32,20 +34,20 @@ public class BookServiceImplementationTest extends Assert {
 
     @Test
     public void testAddBook() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory));
-        assertNotNull(book.getId());
+        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        assertNotEquals(0, book.getId());
         assertEquals(book.getName(), nameOfTestBook);
         bookService.deleteBook(book.getId());
     }
 
     @Test
-    public void testAddEmptyBook(){
-        assertNull(bookService.createBook(new Book("",new BookCategory(""))));
+    public void testAddEmptyBook() {
+        assertNull(bookService.createBook(new Book("", new BookCategory(""))));
     }
 
     @Test
     public void testGetBook() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory));
+        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
         assertNotNull(book);
         assertEquals(nameOfTestBook, book.getName());
         bookService.deleteBook(book.getId());
@@ -58,14 +60,18 @@ public class BookServiceImplementationTest extends Assert {
 
     @Test
     public void testDelete() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory));
+        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
         assertTrue(bookService.deleteBook(book.getId()));
         assertNull(bookService.getBook(book.getId()));
+    }
+    @Test
+    public void testDeleteMissedBook(){
+        assertFalse(bookService.deleteBook(-1));
     }
 
     @Test
     public void testGetAll() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory));
+        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
         assertNotNull(bookService.getAllBooks());
         bookService.deleteBook(book.getId());
     }
