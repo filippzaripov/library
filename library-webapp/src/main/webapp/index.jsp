@@ -18,7 +18,7 @@
     <table border="1px" class="book-table" align="right">
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Title</th>
             <th>Category</th>
             <th>Author</th>
         </tr>

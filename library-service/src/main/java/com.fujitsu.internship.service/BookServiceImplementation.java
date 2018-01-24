@@ -19,18 +19,15 @@ public class BookServiceImplementation implements BookService {
 
     @Override
     public Book getBook(long id) {
-        return bookDAO.getBook(id);
+        return bookDAO.get(id);
     }
 
     @Override
     public Book createBook(Book book) {
-        long id;
         String name = book.getName();
         BookCategory categoryName = book.getCategory();
-        Author author = book.getAuthor();
         if (validator.validateNewBookField(name, categoryName.getName())) {
-            id = bookDAO.addBook(new Book(name, categoryName, author));
-            return getBook(id);
+            return bookDAO.create(book);
         } else {
             return null;
         }
