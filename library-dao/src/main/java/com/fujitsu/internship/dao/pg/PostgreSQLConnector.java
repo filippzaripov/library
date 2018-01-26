@@ -1,14 +1,14 @@
 package com.fujitsu.internship.dao.pg;
 
-import java.io.*;
-import java.sql.*;
-import java.util.Properties;
-
 import com.fujitsu.internship.dao.DataAccessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.crypto.Data;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * This class creating connection to PostgreSQL Database
@@ -38,7 +38,7 @@ public class PostgreSQLConnector {
             log.error("Please check jdbc.properties file", e);
             throw new DataAccessException("Please check database driver", e);
         } catch (ClassNotFoundException e) {
-            log.error("Please check database driver", e);
+            log.error("PostgreSQL JDBC was not found. Please check if it exists", e);
             throw new DataAccessException("Please check database driver", e);
         }
     }
@@ -66,11 +66,9 @@ public class PostgreSQLConnector {
      * @throws SQLException if connection wasn't successful
      */
     public Connection getConnection() {
-        Connection connection = null;
         try {
-            connection = DriverManager.getConnection(url, login, password);
-            return connection;
-        }catch(SQLException e){
+            return DriverManager.getConnection(url, login, password);
+        } catch (SQLException e) {
             throw new DataAccessException("Could not connect to PostgreSQL DB", e);
         }
     }

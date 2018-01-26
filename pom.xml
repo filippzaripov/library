@@ -6,7 +6,7 @@
 
     <groupId>com.fujitsu.internship</groupId>
     <artifactId>library</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,22 +25,22 @@
             <dependency>
                 <groupId>com.fujitsu.internship</groupId>
                 <artifactId>library-model</artifactId>
-                <version>0.1-SNAPSHOT</version>
+                <version>0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.fujitsu.internship</groupId>
                 <artifactId>library-webapp</artifactId>
-                <version>0.1-SNAPSHOT</version>
+                <version>0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.fujitsu.internship</groupId>
                 <artifactId>library-dao</artifactId>
-                <version>0.1-SNAPSHOT</version>
+                <version>0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.fujitsu.internship</groupId>
                 <artifactId>library-service</artifactId>
-                <version>0.1-SNAPSHOT</version>
+                <version>0.1</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>

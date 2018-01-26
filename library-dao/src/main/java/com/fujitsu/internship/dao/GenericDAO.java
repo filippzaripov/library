@@ -12,6 +12,7 @@ public interface GenericDAO<T> {
      * @param entity entity that should be created and added to storage (e.g. Database)
      * @return object that was created, {@code null} if object wasn't created and added to storage
      */
+    //todo: remove "return null" throw SQL Exception
     T create(T entity);
 
     /**

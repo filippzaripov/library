@@ -1,0 +1,182 @@
+2018-01-17 18:01:43,164 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:06:53,573 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:07:12,861 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:08:35,970 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:32:39,081 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:32:39,255 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:41:20,711 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:41:20,837 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:46:11,349 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:49:46,588 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 18:52:30,036 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 19:02:27,974 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 19:06:56,885 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 19:12:00,754 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 19:14:45,312 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 19:16:56,577 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category' | ' was added
+2018-01-17 19:16:56,705 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=56, name='test_name_that_nobody_never_write', category='test_category' | ' was removed
+2018-01-17 19:20:44,098 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:20:44,217 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=57, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-17 19:20:44,328 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:20:44,418 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=58, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-17 19:38:35,769 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:38:35,870 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=59, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-17 19:38:36,039 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:38:36,130 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=60, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-17 19:38:36,316 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:38:36,502 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=61, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-17 19:39:03,804 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:39:03,902 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=62, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-17 19:39:03,988 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:39:04,072 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=63, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-17 19:39:04,186 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-17 19:39:04,284 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=64, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 09:39:04,502 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-18 09:39:04,611 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=66, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 09:42:34,408 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-18 09:42:34,514 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=67, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 09:42:34,700 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-18 09:42:34,770 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=68, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 09:42:34,911 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-18 09:42:35,121 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=69, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 10:07:13,636 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:07:13,739 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id='70', name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 10:10:49,773 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:10:49,912 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='71', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 10:10:50,045 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:10:50,137 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='72', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 10:10:50,297 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:10:50,623 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='73', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 10:26:29,359 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:26:29,472 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='74', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 10:26:29,572 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:28:19,913 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:28:20,001 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='76', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 10:28:20,128 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:28:20,242 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='77', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 10:28:20,348 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:28:20,462 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='78', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 10:28:20,648 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was added
+2018-01-18 10:28:20,841 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='79', name='test_name_that_nobody_never_write', category='test_category' was removed
+2018-01-18 11:47:27,541 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-18 11:47:27,639 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=83, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 11:47:27,740 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-18 11:47:27,831 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=84, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 11:47:27,954 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was added
+2018-01-18 11:47:28,065 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book 'id=85, name='test_name_that_nobody_never_write', category='test_category'' was removed
+2018-01-18 13:42:40,427 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was not added. Name or category is not correct
+2018-01-18 13:42:40,683 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was not added. Name or category is not correct
+2018-01-18 13:42:40,886 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was not added. Name or category is not correct
+2018-01-18 13:45:08,455 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was not added. Name or category is not correct
+2018-01-18 13:45:08,618 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was not added. Name or category is not correct
+2018-01-18 13:45:08,762 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book 'id=0, name='test_name_that_nobody_never_write', category='test_category'' was not added. Name or category is not correct
+2018-01-18 14:24:05,932 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-18 14:24:24,964 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:24:25,064 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-18 14:24:25,184 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:24:25,369 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:24:25,499 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:25:02,814 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:25:58,487 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:30:56,846 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:30:56,962 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-18 14:30:57,073 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:30:57,183 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:30:57,332 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:35:20,857 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test_name_that_nobody_never_write', category='test_category' was not added. Name or category is not correct
+2018-01-18 14:37:20,375 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 14:37:20,635 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='91', name='test name that nobody never write', category='test category' was removed
+2018-01-18 14:37:20,756 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-18 14:37:21,021 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 14:37:21,343 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='92', name='test name that nobody never write', category='test category' was removed
+2018-01-18 14:37:21,499 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 14:37:21,729 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='93', name='test name that nobody never write', category='test category' was removed
+2018-01-18 14:37:21,886 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 14:37:22,077 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='94', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:39:11,323 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:39:11,812 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='95', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:39:11,940 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-18 17:39:12,123 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:39:12,409 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='96', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:39:12,536 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:39:12,744 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='97', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:39:12,922 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:39:13,091 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='98', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:44:12,895 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:44:13,124 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='99', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:44:13,224 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-18 17:44:13,361 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:44:13,739 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='100', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:44:13,914 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:44:14,209 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='101', name='test name that nobody never write', category='test category' was removed
+2018-01-18 17:44:14,358 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-18 17:44:14,518 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='102', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:11:39,331 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:11:39,437 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='114', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:11:39,565 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-22 15:11:39,687 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:11:39,790 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='115', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:11:39,914 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:11:40,026 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='116', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:11:40,153 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:11:40,259 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='117', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:11:40,436 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book null was removed
+2018-01-22 15:12:22,423 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:12:22,534 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='118', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:12:22,618 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-22 15:12:22,781 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:12:22,891 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='119', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:12:22,997 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:12:23,095 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='120', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:12:23,219 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:12:23,322 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='121', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:12:23,497 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book null was removed
+2018-01-22 15:17:54,682 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:17:54,803 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='122', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:17:54,891 ERROR com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='', category='' was not added. Name or category is not correct
+2018-01-22 15:17:55,048 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:17:55,272 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='123', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:17:55,461 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:17:55,579 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='124', name='test name that nobody never write', category='test category' was removed
+2018-01-22 15:17:55,735 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='0', name='test name that nobody never write', category='test category' was added
+2018-01-22 15:17:55,843 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='125', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:39:26,075 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='129', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:39:26,194 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='129', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:39:26,462 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='131', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:39:26,546 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='131', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:39:26,669 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='132', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:39:26,754 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='132', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:39:26,889 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='133', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:39:26,966 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='133', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:41:15,701 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='134', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:41:15,807 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='134', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:41:16,066 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='136', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:41:16,155 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='136', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:41:16,279 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='137', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:41:16,371 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='137', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:41:16,507 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='138', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:41:16,588 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='138', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:42:13,304 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='139', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:42:13,413 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='139', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:42:13,739 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='141', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:42:13,900 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='141', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:42:14,070 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='142', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:42:14,168 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='142', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:42:14,379 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='143', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:42:14,491 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='143', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:27,614 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='148', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:27,704 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='148', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:27,933 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='150', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:28,005 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='150', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:28,141 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='151', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:28,246 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='151', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:28,391 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='152', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:28,477 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='152', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:54,089 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='153', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:54,185 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='153', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:54,302 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='154', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:54,404 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='154', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:54,535 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='155', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:54,731 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='155', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:54:55,041 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='156', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:54:55,127 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='156', name='test name that nobody never write', category='test category' was removed

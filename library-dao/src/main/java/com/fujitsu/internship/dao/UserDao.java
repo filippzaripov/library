@@ -11,19 +11,11 @@ import java.util.List;
  * Each method throws DataAccessException
  */
 public interface UserDao extends GenericDAO<User> {
-    @Override
-    User create(User entity) throws DataAccessException;
-
-    @Override
-    User get(Long id) throws DataAccessException;
-
-    @Override
-    boolean delete(long id) throws DataAccessException;
 
     /**
      * @return all users from storage
      */
-    List<User> getAll() throws DataAccessException;
+    List<User> getAll() ;
 
     /**
      * finds user in storage by name
@@ -31,5 +23,5 @@ public interface UserDao extends GenericDAO<User> {
      * @param name name of user that should be found
      * @return user object {@code null} if wasn't found
      */
-    User findByName(String name) throws DataAccessException;
+    User findByName(String name) ;
 }

@@ -27,6 +27,7 @@ public class PostgreSQLBookDAO implements BookDAO {
 
     @Override
     public Book create(Book book) {
+        // FIXME: Book to Long id
         try (Connection connection = connector.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO books (name, category_name, author) VALUES (? , ?, ?)")) {
             stmt.setString(1, book.getName());

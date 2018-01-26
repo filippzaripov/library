@@ -1,0 +1,32 @@
+2018-01-23 10:53:44,676 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='144', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:53:44,913 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='144', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:53:45,217 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='145', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:53:45,444 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='145', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:53:45,706 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='146', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:53:45,856 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='146', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:53:46,057 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='147', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:53:46,202 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='147', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:55:05,565 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='157', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:55:05,664 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='157', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:55:05,918 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='158', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:55:06,059 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='158', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:55:06,196 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='159', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:55:06,309 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='159', name='test name that nobody never write', category='test category' was removed
+2018-01-23 10:55:06,499 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='160', name='test name that nobody never write', category='test category' was added
+2018-01-23 10:55:06,634 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='160', name='test name that nobody never write', category='test category' was removed
+2018-01-24 12:56:18,973 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='166', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@6fadae5d' was added
+2018-01-24 12:56:19,119 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='166', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@506e6d5e' was removed
+2018-01-24 12:56:19,455 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='167', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@35f983a6' was added
+2018-01-24 12:56:19,668 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='167', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@7f690630' was removed
+2018-01-24 12:56:20,003 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='168', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@edf4efb' was added
+2018-01-24 12:56:20,211 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='168', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@2f7a2457' was removed
+2018-01-24 12:56:20,408 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='169', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@566776ad' was added
+2018-01-24 12:56:20,580 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='169', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@6108b2d7' was removed
+2018-01-24 13:10:41,045 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='171', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@6108b2d7' was added
+2018-01-24 13:10:41,203 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='171', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@13969fbe' was removed
+2018-01-24 13:10:41,529 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='172', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@668bc3d5' was added
+2018-01-24 13:10:41,742 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='172', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@3cda1055' was removed
+2018-01-24 13:10:41,959 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='173', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@7a5d012c' was added
+2018-01-24 13:10:42,103 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='173', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@3fb6a447' was removed
+2018-01-24 13:10:42,342 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - book id='174', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@79b4d0f' was added
+2018-01-24 13:10:42,487 INFO com.fujitsu.internship.dao.pg.PostgreSQLConnector - Book id='174', name='test name that nobody never write', category='com.fujitsu.internship.model.BookCategory@6b2fad11' was removed

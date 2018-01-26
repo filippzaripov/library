@@ -6,6 +6,8 @@ public class User {
     private String password;
     private String email;
 
+    //todo:default constructor
+
     public User(String name, String email) {
         setName(name);
         setEmail(email);

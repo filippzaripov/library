@@ -13,6 +13,7 @@ public class Book {
     /**
      * book id
      */
+    //todo: long to Long
     private long id;
     /**
      * category name
@@ -23,7 +24,8 @@ public class Book {
      */
     private Author author;
 
-
+//todo: one style for constructors
+//todo: use other constructors
     public Book(String name, BookCategory category) {
         setName(name);
         setCategory(category);

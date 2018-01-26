@@ -20,6 +20,7 @@ public interface BookService {
      * @param book book that should be created
      * @return book that has been created, {@code null} if book wasn't created
      */
+    //FIXME: delete null
     Book createBook(Book book);
 
     /**
@@ -33,6 +34,7 @@ public interface BookService {
     /**
      * @return all books as List or empty list if none found.
      */
+    //FIXME: add sorting (order By)
     List<Book> getAllBooks();
 
 }
