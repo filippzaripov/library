@@ -34,7 +34,7 @@ public class DeleteBookServlet extends HttpServlet {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
         }
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/show_all_books");
         requestDispatcher.forward(req, resp);
     }
 

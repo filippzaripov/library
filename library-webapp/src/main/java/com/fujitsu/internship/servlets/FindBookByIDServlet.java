@@ -36,7 +36,7 @@ public class FindBookByIDServlet extends HttpServlet {
         } else {
             req.setAttribute("result", "This ID is not correct.\nPlease enter correct one.");
         }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/");
         requestDispatcher.forward(req, resp);
     }
 

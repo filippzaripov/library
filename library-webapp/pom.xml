@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>library-webapp</artifactId>
-    <version>0.1</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <parent>
         <groupId>com.fujitsu.internship</groupId>
         <artifactId>library</artifactId>
-        <version>0.1</version>
+        <version>0.2-SNAPSHOT</version>
     </parent>
     <dependencies>
         <dependency>
@@ -34,6 +34,18 @@
         <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
         </dependency>
     </dependencies>
     <build>

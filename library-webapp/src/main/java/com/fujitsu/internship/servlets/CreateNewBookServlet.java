@@ -31,7 +31,7 @@ public class CreateNewBookServlet extends HttpServlet {
         } else {
             req.setAttribute("result", "Book name or category is not correct");
         }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/show_all_books");
         requestDispatcher.forward(req, resp);
     }
 
