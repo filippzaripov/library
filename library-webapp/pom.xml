@@ -47,6 +47,11 @@
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -58,7 +63,14 @@
                     <container>
                         <containerId>tomcat8x</containerId>
                     </container>
+                    <configuration>
+                        <properties>
+                            <context>/main</context>
+                        </properties>
+                    </configuration>
                 </configuration>
+
+
             </plugin>
         </plugins>
     </build>

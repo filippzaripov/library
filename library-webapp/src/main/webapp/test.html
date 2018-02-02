@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery.tabledit.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#table').DataTable();
+        } );
+
+    </script>
+</head>
+<body>
+<table class="table table-responsive">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+    </tr>
+
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+</table>
+    <!--$('.table').Tabledit({
+    url: 'example.php',
+    columns: {
+    identifier: [0, 'id'],
+    editable: [[1, 'nickname'], [2, 'firstname'], [3, 'lastname']]
+    }
+    });-->
+
+</body>
+</html>

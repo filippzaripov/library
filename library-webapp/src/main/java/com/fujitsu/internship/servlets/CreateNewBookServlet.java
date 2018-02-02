@@ -5,6 +5,8 @@ import com.fujitsu.internship.model.Book;
 import com.fujitsu.internship.model.BookCategory;
 import com.fujitsu.internship.service.BookService;
 import com.fujitsu.internship.service.BookServiceImplementation;
+import com.fujitsu.internship.service.CategoryService;
+import com.fujitsu.internship.service.CategoryServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Servlet class that processes requests for creating new book
@@ -24,14 +27,16 @@ public class CreateNewBookServlet extends HttpServlet {
         BookService bookService = new BookServiceImplementation();
         String name = req.getParameter("name");
         Author author = new Author(req.getParameter("author"));
-        BookCategory category = new BookCategory(req.getParameter("categoryName"));
+        BookCategory category = new BookCategory(req.getParameter("category"));
         Book book = bookService.createBook(new Book(name, category, author));
+
         if (book != null) {
             req.setAttribute("result", "Book '" + name + "' was added to database");
+
         } else {
             req.setAttribute("result", "Book name or category is not correct");
         }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/show_all_books");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/main");
         requestDispatcher.forward(req, resp);
     }
 

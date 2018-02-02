@@ -3,12 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <!--<welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>-->
-    <error-page>
+    <welcome-file-list>
+        <welcome-file>jsp/index.jsp</welcome-file>
+    </welcome-file-list>
+    <!--<error-page>
         <location>/commonErrorPage.html</location>
-    </error-page>
+    </error-page>-->
     <servlet>
         <servlet-name>FindBookByIDServlet</servlet-name>
         <servlet-class>com.fujitsu.internship.servlets.FindBookByIDServlet</servlet-class>
@@ -29,6 +29,22 @@
         <servlet-name>testServlet</servlet-name>
         <servlet-class>com.fujitsu.internship.servlets.testServlets.TestServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editBook</servlet-name>
+        <servlet-class>com.fujitsu.internship.servlets.EditBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>saveEditedBook</servlet-name>
+        <servlet-class>com.fujitsu.internship.servlets.SaveEditedBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editBook</servlet-name>
+        <url-pattern>/editBook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>saveEditedBook</servlet-name>
+        <url-pattern>/saveEditedBook</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>testServlet</servlet-name>
         <url-pattern>/test</url-pattern>
@@ -39,7 +55,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ShowAllBooksServlet</servlet-name>
-        <url-pattern>/show_all_books</url-pattern>
+        <url-pattern>/main</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteBookByID</servlet-name>
@@ -49,6 +65,4 @@
         <servlet-name>AddBook</servlet-name>
         <url-pattern>/add_book</url-pattern>
     </servlet-mapping>
-    
-
 </web-app>

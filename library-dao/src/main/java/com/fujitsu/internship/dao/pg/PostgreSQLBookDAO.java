@@ -95,10 +95,25 @@ public class PostgreSQLBookDAO implements BookDAO {
         }
     }
 
+    @Override
+    public boolean editBook(long id, String name, BookCategory category, Author author) {
+        try(Connection connection = connector.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("UPDATE books SET name = ?, category_name = ?, author = ? WHERE id = ?")){
+            stmt.setString(1, name);
+            stmt.setString(2, category.getName());
+            stmt.setString(3, author.getName());
+            stmt.setLong(4, id);
+            stmt.executeUpdate();
+            return true;
+        }catch (SQLException e){
+            throw new DataAccessException("SQL Exception while editing book", e);
+        }
+    }
+
     public List<Book> getAll() {
         List<Book> bookList = new ArrayList();
         try (Connection connection = connector.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name,author FROM books");
+             PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name,author FROM books ORDER BY id");
         ) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
