@@ -18,8 +18,7 @@ public class SaveEditedBookServlet extends HttpServlet {
         BookService bookService = new BookServiceImplementation();
         Long editedBookId = Long.parseLong(req.getParameter("id"));
         bookService.editBook(editedBookId, req.getParameter("name"), new BookCategory(req.getParameter("category")), new Author(req.getParameter("author")));
-        req.getRequestDispatcher("/main").forward(req, resp);
-
+        req.getRequestDispatcher("main").forward(req, resp);
     }
 
     @Override

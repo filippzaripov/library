@@ -14,30 +14,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Servlet class that processes requests for creating new book
  *
  * @author Filipp Zaripov
  */
+
 public class CreateNewBookServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookService bookService = new BookServiceImplementation();
-        String name = req.getParameter("name");
-        Author author = new Author(req.getParameter("author"));
-        BookCategory category = new BookCategory(req.getParameter("category"));
-        Book book = bookService.createBook(new Book(name, category, author));
-
-        if (book != null) {
-            req.setAttribute("result", "Book '" + name + "' was added to database");
-
+        CategoryService categoryService = new CategoryServiceImpl();
+        if (req.getServletPath().equals("/createBook")) {
+            req.setAttribute("categoriesList", categoryService.getAllBookCategories());
         } else {
-            req.setAttribute("result", "Book name or category is not correct");
+            String name = req.getParameter("name");
+            Author author = new Author(req.getParameter("author"));
+            BookCategory category = new BookCategory(req.getParameter("category"));
+            Book book = bookService.createBook(new Book(name, category, author));
+            req.setAttribute("result", "Congratulations! Book: '" + book.getName() +"' was created");
+            req.getRequestDispatcher("/createBook").forward(req,resp);
         }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/main");
-        requestDispatcher.forward(req, resp);
+        req.getRequestDispatcher("/jsp/createBookForm.jsp").forward(req, resp);
+
     }
 
     @Override

@@ -24,11 +24,11 @@
     </div>
     <div class="input-group-addon">
         <span class="input-group-addon">Name</span>
-        <input name="name" type="text" class="form-control" placeholder="Name" value="${name}">
+        <input name="name" type="text" class="form-control" placeholder="Name" value="${name}" required>
     </div>
     <div class="input-group-addon">
         <span class="input-group-addon">Category</span>
-        <select name="category">
+        <select class="form-control" name="category">
             <c:forEach items="${categoriesList}" var="category">
                 <option><c:out value="${category.getName()}"/></option>
             </c:forEach>
@@ -37,10 +37,10 @@
 
     <div class="input-group-addon">
         <span class="input-group-addon">Author</span>
-        <input name="author" type="text" class="form-control" placeholder="Author" value="${author}">
+        <input name="author" type="text" class="form-control" placeholder="Author" value="${author}" required>
     </div>
     <input class="btn btn-success" type="submit" value="Save">
-    <input class="btn btn-success" type="button" value="Cancel">
+    <a href="main" class="btn btn-warning" type="button">Back to Library</a>
 </form>
 </body>
 </html>

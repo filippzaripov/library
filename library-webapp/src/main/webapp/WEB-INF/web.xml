@@ -7,7 +7,7 @@
         <welcome-file>jsp/index.jsp</welcome-file>
     </welcome-file-list>
     <!--<error-page>
-        <location>/commonErrorPage.html</location>
+        <location>/commonErrorPage.jsp</location>
     </error-page>-->
     <servlet>
         <servlet-name>FindBookByIDServlet</servlet-name>
@@ -20,10 +20,6 @@
     <servlet>
         <servlet-name>DeleteBookByID</servlet-name>
         <servlet-class>com.fujitsu.internship.servlets.DeleteBookServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddBook</servlet-name>
-        <servlet-class>com.fujitsu.internship.servlets.CreateNewBookServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>testServlet</servlet-name>
@@ -61,8 +57,17 @@
         <servlet-name>DeleteBookByID</servlet-name>
         <url-pattern>/delete_book</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>createNewBook</servlet-name>
+        <servlet-class>com.fujitsu.internship.servlets.CreateNewBookServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>AddBook</servlet-name>
-        <url-pattern>/add_book</url-pattern>
+        <servlet-name>createNewBook</servlet-name>
+        <url-pattern>/createBook</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createNewBook</servlet-name>
+        <url-pattern>/newBook</url-pattern>
+    </servlet-mapping>
+
 </web-app>
