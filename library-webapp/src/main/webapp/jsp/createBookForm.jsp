@@ -31,6 +31,6 @@
     <input class="btn btn-success" type="submit" value="Create Book">
     <a href="main" class="btn btn-warning" type="button">Back to Library</a>
 </form>
-<div class="alert alert-success"><c:out value="${result}"/></div>
+<div class="alert-success"><c:out value="${result}"/></div>
 </body>
 </html>

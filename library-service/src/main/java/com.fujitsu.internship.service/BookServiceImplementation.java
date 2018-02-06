@@ -32,13 +32,13 @@ public class BookServiceImplementation implements BookService {
     }
 
     @Override
-    public Book createBook(Book book) {
+    public Long createBook(Book book) {
         String name = book.getName();
         BookCategory categoryName = book.getCategory();
         if (validator.validateNewBookField(name, categoryName.getName())) {
             return bookDAO.create(book);
-        } else {
-            return null;
+        } else{
+            return -1L;
         }
     }
 

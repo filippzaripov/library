@@ -25,9 +25,7 @@ public class PostgreSQLBookDAO implements BookDAO {
     protected PostgreSQLConnector connector = PostgreSQLConnector.getConnector();
     private static Logger log = LoggerFactory.getLogger(PostgreSQLConnector.class);
 
-    @Override
-    public Book create(Book book) {
-        // FIXME: Book to Long id
+    public Long create(Book book) {
         try (Connection connection = connector.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO books (name, category_name, author) VALUES (? , ?, ?)")) {
             stmt.setString(1, book.getName());
@@ -35,14 +33,10 @@ public class PostgreSQLBookDAO implements BookDAO {
             stmt.setString(3, book.getAuthor().getName());
             stmt.executeUpdate();
             Book addedBook = getBookByName(book.getName());
-            if (addedBook != null) {
-                log.info("book {} was added", addedBook);
-                return addedBook;
-            } else {
-                log.error("Book {} wasn't added to database. Please check logs", book);
-                return null;
-            }
+            log.info("book {} was added", addedBook);
+            return addedBook.getId();
         } catch (SQLException e) {
+            log.error("Book {} wasn't added to database. Please check logs", book);
             throw new DataAccessException("SQL Exception while adding book", e);
         }
     }
@@ -97,15 +91,15 @@ public class PostgreSQLBookDAO implements BookDAO {
 
     @Override
     public boolean editBook(long id, String name, BookCategory category, Author author) {
-        try(Connection connection = connector.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("UPDATE books SET name = ?, category_name = ?, author = ? WHERE id = ?")){
+        try (Connection connection = connector.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("UPDATE books SET name = ?, category_name = ?, author = ? WHERE id = ?")) {
             stmt.setString(1, name);
             stmt.setString(2, category.getName());
             stmt.setString(3, author.getName());
             stmt.setLong(4, id);
             stmt.executeUpdate();
             return true;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new DataAccessException("SQL Exception while editing book", e);
         }
     }

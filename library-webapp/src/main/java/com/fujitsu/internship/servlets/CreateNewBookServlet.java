@@ -8,7 +8,6 @@ import com.fujitsu.internship.service.BookServiceImplementation;
 import com.fujitsu.internship.service.CategoryService;
 import com.fujitsu.internship.service.CategoryServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,13 +27,17 @@ public class CreateNewBookServlet extends HttpServlet {
         CategoryService categoryService = new CategoryServiceImpl();
         if (req.getServletPath().equals("/createBook")) {
             req.setAttribute("categoriesList", categoryService.getAllBookCategories());
+
         } else {
             String name = req.getParameter("name");
             Author author = new Author(req.getParameter("author"));
             BookCategory category = new BookCategory(req.getParameter("category"));
-            Book book = bookService.createBook(new Book(name, category, author));
-            req.setAttribute("result", "Congratulations! Book: '" + book.getName() +"' was created");
-            req.getRequestDispatcher("/createBook").forward(req,resp);
+            Long id = bookService.createBook(new Book(name, category, author));
+            if(id > 0) {
+                req.setAttribute("result", "Congratulations! Book: '" + name + "' was created");
+            }else{
+                req.setAttribute("result", "Book name or category is not valid");
+            }
         }
         req.getRequestDispatcher("/jsp/createBookForm.jsp").forward(req, resp);
 

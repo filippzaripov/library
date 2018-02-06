@@ -20,10 +20,9 @@ public interface BookService {
      * Creates new book
      *
      * @param book book that should be created
-     * @return book that has been created, {@code null} if book wasn't created
+     * @return book that has been created
      */
-    //FIXME: delete null
-    Book createBook(Book book);
+    Long createBook(Book book);
 
     /**
      * deletes book by id
@@ -34,7 +33,6 @@ public interface BookService {
     boolean deleteBook(long id);
 
     /**
-     *
      * @return all books as List ordered by id or empty list if none found.
      */
 

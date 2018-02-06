@@ -1,5 +1,7 @@
 package com.fujitsu.internship.dao;
 
+import java.sql.SQLException;
+
 /**
  * Generic interface for manipulation with any types of objects
  *
@@ -10,10 +12,10 @@ public interface GenericDAO<T> {
      * creates object and adds to storage
      *
      * @param entity entity that should be created and added to storage (e.g. Database)
-     * @return object that was created, {@code null} if object wasn't created and added to storage
+     * @return id of object that was created
+     *
      */
-    //todo: remove "return null" throw SQL Exception
-    T create(T entity);
+    Long create(T entity);
 
     /**
      * retrieves object from storage by its id

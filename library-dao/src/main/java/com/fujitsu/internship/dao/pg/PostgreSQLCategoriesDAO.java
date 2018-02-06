@@ -31,7 +31,7 @@ public class PostgreSQLCategoriesDAO implements CategoriesDAO {
     }
 
     @Override
-    public BookCategory create(BookCategory entity) {
+    public Long create(BookCategory entity) {
         return null;
     }
 
