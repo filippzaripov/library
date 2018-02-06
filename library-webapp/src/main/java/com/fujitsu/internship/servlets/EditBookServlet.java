@@ -1,33 +1,33 @@
 package com.fujitsu.internship.servlets;
 
+import com.fujitsu.internship.model.Book;
 import com.fujitsu.internship.service.BookService;
 import com.fujitsu.internship.service.BookServiceImplementation;
 import com.fujitsu.internship.service.CategoryService;
 import com.fujitsu.internship.service.CategoryServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Servlet class that processes requests for finding book
- *
- * @author Filipp Zaripov
- */
+public class EditBookServlet extends HttpServlet {
 
-public class ShowAllBooksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookService bookService = new BookServiceImplementation();
         CategoryService categoryService = new CategoryServiceImpl();
-        req.setAttribute("bookList", bookService.getAllBooks());
+        Long idFromField = Long.parseLong(req.getParameter("editBookId"));
+
+        Book oldBook = bookService.getBook(idFromField);
+        req.setAttribute("id", idFromField);
+        req.setAttribute("name", oldBook.getName());
         req.setAttribute("categoriesList", categoryService.getAllBookCategories());
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("jsp/main.jsp");
-        requestDispatcher.forward(req, resp);
+        req.setAttribute("author", oldBook.getAuthor().getName());
+        req.getRequestDispatcher("jsp/editBookForm.jsp").forward(req, resp);
+
+
     }
 
     @Override

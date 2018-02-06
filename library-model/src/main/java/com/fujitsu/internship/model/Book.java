@@ -13,8 +13,7 @@ public class Book {
     /**
      * book id
      */
-    //todo: long to Long
-    private long id;
+    private Long id;
     /**
      * category name
      */
@@ -24,17 +23,25 @@ public class Book {
      */
     private Author author;
 
-//todo: one style for constructors
-//todo: use other constructors
+    public Book() {
+
+    }
+
     public Book(String name, BookCategory category) {
-        setName(name);
-        setCategory(category);
+        this.name = name;
+        this.category = category;
+    }
+
+    public Book(long id, String name, BookCategory category) {
+        this.name = name;
+        this.id = id;
+        this.category = category;
     }
 
     public Book(String name, BookCategory category, Author author) {
-        setName(name);
-        setCategory(category);
-        setAuthor(author);
+        this.name = name;
+        this.category = category;
+        this.author = author;
     }
 
     public Book(long id, String name, BookCategory category, Author author) {
@@ -42,12 +49,6 @@ public class Book {
         this.id = id;
         this.category = category;
         this.author = author;
-    }
-
-    public Book(long id, String name, BookCategory category) {
-        setId(id);
-        setName(name);
-        setCategory(category);
     }
 
     public String getName() {

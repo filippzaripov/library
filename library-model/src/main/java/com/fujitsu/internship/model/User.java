@@ -1,12 +1,14 @@
 package com.fujitsu.internship.model;
 
 public class User {
-    private long id;
+    private Long id;
     private String name;
     private String password;
     private String email;
 
-    //todo:default constructor
+    public User() {
+
+    }
 
     public User(String name, String email) {
         setName(name);

@@ -1,6 +1,8 @@
 package com.fujitsu.internship.service;
 
+import com.fujitsu.internship.model.Author;
 import com.fujitsu.internship.model.Book;
+import com.fujitsu.internship.model.BookCategory;
 
 import java.util.List;
 
@@ -18,10 +20,9 @@ public interface BookService {
      * Creates new book
      *
      * @param book book that should be created
-     * @return book that has been created, {@code null} if book wasn't created
+     * @return book that has been created
      */
-    //FIXME: delete null
-    Book createBook(Book book);
+    Long createBook(Book book);
 
     /**
      * deletes book by id
@@ -32,9 +33,20 @@ public interface BookService {
     boolean deleteBook(long id);
 
     /**
-     * @return all books as List or empty list if none found.
+     * @return all books as List ordered by id or empty list if none found.
      */
-    //FIXME: add sorting (order By)
+
     List<Book> getAllBooks();
+
+    /**
+     * updates book in table
+     *
+     * @param id       id of the book
+     * @param name     new name of the book, should not be null
+     * @param category book category shouldn't be null
+     * @param author   author of the book, shouldn't be null
+     * @return true if books was successfully updates, else - false
+     */
+    boolean editBook(long id, String name, BookCategory category, Author author);
 
 }

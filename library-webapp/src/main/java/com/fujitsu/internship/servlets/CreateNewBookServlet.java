@@ -5,8 +5,9 @@ import com.fujitsu.internship.model.Book;
 import com.fujitsu.internship.model.BookCategory;
 import com.fujitsu.internship.service.BookService;
 import com.fujitsu.internship.service.BookServiceImplementation;
+import com.fujitsu.internship.service.CategoryService;
+import com.fujitsu.internship.service.CategoryServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,21 +19,28 @@ import java.io.IOException;
  *
  * @author Filipp Zaripov
  */
+
 public class CreateNewBookServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookService bookService = new BookServiceImplementation();
-        String name = req.getParameter("name");
-        Author author = new Author(req.getParameter("author"));
-        BookCategory category = new BookCategory(req.getParameter("categoryName"));
-        Book book = bookService.createBook(new Book(name, category, author));
-        if (book != null) {
-            req.setAttribute("result", "Book '" + name + "' was added to database");
+        CategoryService categoryService = new CategoryServiceImpl();
+        if (req.getServletPath().equals("/createBook")) {
+            req.setAttribute("categoriesList", categoryService.getAllBookCategories());
+
         } else {
-            req.setAttribute("result", "Book name or category is not correct");
+            String name = req.getParameter("name");
+            Author author = new Author(req.getParameter("author"));
+            BookCategory category = new BookCategory(req.getParameter("category"));
+            Long id = bookService.createBook(new Book(name, category, author));
+            if(id > 0) {
+                req.setAttribute("result", "Congratulations! Book: '" + name + "' was created");
+            }else{
+                req.setAttribute("result", "Book name or category is not valid");
+            }
         }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
-        requestDispatcher.forward(req, resp);
+        req.getRequestDispatcher("/jsp/createBookForm.jsp").forward(req, resp);
+
     }
 
     @Override

@@ -18,18 +18,27 @@ public class BookServiceImplementation implements BookService {
     protected Validator validator = new Validator();
 
     @Override
+    public boolean editBook(long id, String name, BookCategory category, Author author) {
+        if(validator.validateNewBookField(name, category.getName()) && author != null){
+           return bookDAO.editBook(id, name, category, author);
+        }else {
+            return false;
+        }
+    }
+
+    @Override
     public Book getBook(long id) {
         return bookDAO.get(id);
     }
 
     @Override
-    public Book createBook(Book book) {
+    public Long createBook(Book book) {
         String name = book.getName();
         BookCategory categoryName = book.getCategory();
         if (validator.validateNewBookField(name, categoryName.getName())) {
             return bookDAO.create(book);
-        } else {
-            return null;
+        } else{
+            return -1L;
         }
     }
 

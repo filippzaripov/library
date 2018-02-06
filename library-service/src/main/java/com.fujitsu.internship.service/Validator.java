@@ -9,8 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * That class is use to validate all data that user enter in form before making database query.
@@ -30,11 +28,11 @@ public class Validator {
      * @param category_name name of the book category
      * @return true if valid, else - false
      */
-    private boolean categoryNameValidate(String category_name) {
+    /*private boolean categoryNameValidate(String category_name) {
         Pattern pattern = Pattern.compile("^[a-zA-Z\\s]+");
         Matcher m = pattern.matcher(category_name);
         return m.matches();
-    }
+    }*/
 
     /**
      * validates book name by regular expression
@@ -43,44 +41,31 @@ public class Validator {
      * @return true if valid, else - false
      */
     private boolean bookNameValidate(String bookName) {
-        Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s\\?\\!\\.]+");
+       /* Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s\\?\\!\\.]+");
         Matcher m = pattern.matcher(bookName);
-        return m.matches();
+        return m.matches();*/
+        return true;
     }
 
     /**
      * Validates input parameters before creating new book
      *
      * @param bookName name of the book
-     * @param category  name of the book category
+     * @param category name of the book category
      * @return true if valid, else - false
      */
     public boolean validateNewBookField(String bookName, String category) {
-        try (Connection connection = connector.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("SELECT category_name FROM books_cat WHERE category_name=?")) {
-            stmt.setString(1, category);
-            ResultSet rs = stmt.executeQuery();
-            String category_name = null;
-            if (rs.next()) {
-                category_name = rs.getString("category_name");
-            } else {
-                return false;
-            }
-            try {
-                if (!category_name.equals(null) && categoryNameValidate(category_name) && bookNameValidate(bookName)) {
-                    return true;
-                }
-            } catch (NullPointerException e) {
-                return false;
-            }
-        } catch (SQLException e) {
-            throw new DataAccessException("SQL Exception while validate new book data", e);
+
+        if (bookNameValidate(bookName)) {
+            return true;
+        }else{
+            return false;
         }
-        return false;
+
     }
 
     /**
-     * Validates if entered id is correct before execute SQL request
+     * Validates if entered id is correct before execute SQL request and search if book with this id exists
      *
      * @param idFromField id entered by user
      * @return true if valid, else - false
@@ -95,7 +80,7 @@ public class Validator {
                     long idFromBookDB = -1;
                     if (rs.next()) {
                         idFromBookDB = rs.getLong("id");
-                        if (idFromBookDB == idFromField){
+                        if (idFromBookDB == idFromField) {
                             return true;
                         }
                     } else {
@@ -109,7 +94,7 @@ public class Validator {
             }
         } catch (NullPointerException e) {
             return false;
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new DataAccessException("SQL Exception while close connection while validate ID of the book", e);
         }
 

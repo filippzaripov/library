@@ -34,7 +34,8 @@ public class BookServiceImplementationTest extends Assert {
 
     @Test
     public void testAddBook() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Long id = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Book book = bookService.getBook(id);
         assertNotEquals(0, book.getId());
         assertEquals(book.getName(), nameOfTestBook);
         bookService.deleteBook(book.getId());
@@ -47,7 +48,8 @@ public class BookServiceImplementationTest extends Assert {
 
     @Test
     public void testGetBook() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Long id = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Book book = bookService.getBook(id);
         assertNotNull(book);
         assertEquals(nameOfTestBook, book.getName());
         bookService.deleteBook(book.getId());
@@ -60,7 +62,8 @@ public class BookServiceImplementationTest extends Assert {
 
     @Test
     public void testDelete() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Long id = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Book book = bookService.getBook(id);
         assertTrue(bookService.deleteBook(book.getId()));
         assertNull(bookService.getBook(book.getId()));
     }
@@ -71,7 +74,8 @@ public class BookServiceImplementationTest extends Assert {
 
     @Test
     public void testGetAll() {
-        Book book = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Long id = bookService.createBook(new Book(nameOfTestBook, bookCategory, testAuthor));
+        Book book = bookService.getBook(id);
         assertNotNull(bookService.getAllBooks());
         bookService.deleteBook(book.getId());
     }
