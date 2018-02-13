@@ -8,16 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel='stylesheet' href='<%= org.webjars.AssetLocator.getWebJarPath("css/bootstrap.min.css") %>'>
-    <link rel='stylesheet' href='<%= org.webjars.AssetLocator.getWebJarPath("css/bootstrap-theme.min.css") %>'>
-    <script type='text/javascript' src='<%= org.webjars.AssetLocator.getWebJarPath("jquery.min.js") %>'></script>
-    <script type='text/javascript' src='<%= org.webjars.AssetLocator.getWebJarPath("js/bootstrap.min.js") %>'></script>
+    <link rel='stylesheet' href='webjars/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script type='text/javascript' src='webjars/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='webjars/bootstrap/4.0.0/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/myScripts.js"></script>
     <title>Library</title>
 </head>
 <body>
-<div class="h1">
-    <a id="welcome_button" class="button" href="main">Click here to open Library</a>
-</div>
-
+    <jsp:forward page="/main"></jsp:forward>
+    <script>getNotificationPermission()</script>
 </body>
 </html>

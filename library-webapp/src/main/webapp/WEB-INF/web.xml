@@ -9,10 +9,7 @@
     <!--<error-page>
         <location>/commonErrorPage.jsp</location>
     </error-page>-->
-    <servlet>
-        <servlet-name>FindBookByIDServlet</servlet-name>
-        <servlet-class>com.fujitsu.internship.servlets.FindBookByIDServlet</servlet-class>
-    </servlet>
+
     <servlet>
         <servlet-name>ShowAllBooksServlet</servlet-name>
         <servlet-class>com.fujitsu.internship.servlets.ShowAllBooksServlet</servlet-class>
@@ -26,16 +23,36 @@
         <servlet-class>com.fujitsu.internship.servlets.testServlets.TestServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>editBook</servlet-name>
-        <servlet-class>com.fujitsu.internship.servlets.EditBookServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>saveEditedBook</servlet-name>
         <servlet-class>com.fujitsu.internship.servlets.SaveEditedBookServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>newBookForm</servlet-name>
+        <jsp-file>/jsp/createEditBookForm.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>editBook</servlet-name>
-        <url-pattern>/editBook</url-pattern>
+        <servlet-name>newBookForm</servlet-name>
+        <url-pattern>/main/newBookForm</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>editBookForm</servlet-name>
+        <jsp-file>/jsp/createEditBookForm.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editBookForm</servlet-name>
+        <url-pattern>/main/editBookForm</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>createAndEditBook</servlet-name>
+        <servlet-class>com.fujitsu.internship.servlets.CreateAndEditBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createAndEditBook</servlet-name>
+        <url-pattern>/main/createBook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createAndEditBook</servlet-name>
+        <url-pattern>/main/editBook</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>saveEditedBook</servlet-name>
@@ -46,28 +63,12 @@
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>FindBookByIDServlet</servlet-name>
-        <url-pattern>/find_book_by_id</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ShowAllBooksServlet</servlet-name>
         <url-pattern>/main</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteBookByID</servlet-name>
-        <url-pattern>/delete_book</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>createNewBook</servlet-name>
-        <servlet-class>com.fujitsu.internship.servlets.CreateNewBookServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>createNewBook</servlet-name>
-        <url-pattern>/createBook</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>createNewBook</servlet-name>
-        <url-pattern>/newBook</url-pattern>
+        <url-pattern>/main/delete_book</url-pattern>
     </servlet-mapping>
 
 </web-app>

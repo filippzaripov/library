@@ -19,9 +19,9 @@ public class BookServiceImplementation implements BookService {
 
     @Override
     public boolean editBook(long id, String name, BookCategory category, Author author) {
-        if(validator.validateNewBookField(name, category.getName()) && author != null){
-           return bookDAO.editBook(id, name, category, author);
-        }else {
+        if (validator.validateNewBookField(name, category.getName()) && author != null) {
+            return bookDAO.editBook(id, name, category, author);
+        } else {
             return false;
         }
     }
@@ -34,10 +34,10 @@ public class BookServiceImplementation implements BookService {
     @Override
     public Long createBook(Book book) {
         String name = book.getName();
-        BookCategory categoryName = book.getCategory();
-        if (validator.validateNewBookField(name, categoryName.getName())) {
+        Author author = book.getAuthor();
+        if (validator.validateNewBookField(name, author.getName())) {
             return bookDAO.create(book);
-        } else{
+        } else {
             return -1L;
         }
     }

@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * That class is use to validate all data that user enter in form before making database query.
@@ -44,19 +46,37 @@ public class Validator {
        /* Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s\\?\\!\\.]+");
         Matcher m = pattern.matcher(bookName);
         return m.matches();*/
-        return true;
+        if(bookName.trim().equals("")){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    /**
+     * validates author name by regular expression
+     *
+     * @param author name of the author
+     * @return true if valid, else - false
+     */
+    private boolean authorValidate(String author){
+         if(author.trim().equals("")){
+            return false;
+         }else {
+             return true;
+         }
+
     }
 
     /**
      * Validates input parameters before creating new book
      *
      * @param bookName name of the book
-     * @param category name of the book category
+     * @param author name of the book category
      * @return true if valid, else - false
      */
-    public boolean validateNewBookField(String bookName, String category) {
-
-        if (bookNameValidate(bookName)) {
+    public boolean validateNewBookField(String bookName, String author) {
+        if (bookNameValidate(bookName) && authorValidate(author)) {
             return true;
         }else{
             return false;
