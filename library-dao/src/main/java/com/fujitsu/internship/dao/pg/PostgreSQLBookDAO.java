@@ -107,7 +107,7 @@ public class PostgreSQLBookDAO implements BookDAO {
     public List<Book> getAll() {
         List<Book> bookList = new ArrayList();
         try (Connection connection = connector.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name,author FROM books ORDER BY id");
+             PreparedStatement stmt = connection.prepareStatement("SELECT id,name,category_name,author FROM books ORDER BY id ASC");
         ) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -119,4 +119,25 @@ public class PostgreSQLBookDAO implements BookDAO {
         return bookList;
     }
 
+    public List<Book> getAllBooksPaging(int limit, int offset){
+        List<Book> bookList = new ArrayList();
+        try (Connection connection = connector.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(
+                        "SELECT id,name,category_name,author FROM books " +
+                             "ORDER BY id ASC" +
+                             "LIMIT ?" +
+                             "OFFSET ?");
+        ) {
+
+            stmt.setInt(1, limit);
+            stmt.setInt(2, offset);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                bookList.add(createBookFromResultSet(rs));
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("SQL Exception while get all books", e);
+        }
+        return bookList;
+    }
 }

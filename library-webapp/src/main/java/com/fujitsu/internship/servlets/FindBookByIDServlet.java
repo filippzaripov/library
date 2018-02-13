@@ -6,13 +6,12 @@ import com.fujitsu.internship.service.BookServiceImplementation;
 import com.fujitsu.internship.service.CategoryService;
 import com.fujitsu.internship.service.CategoryServiceImpl;
 import org.apache.commons.lang3.StringUtils;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,9 +19,10 @@ import java.util.ArrayList;
  *
  * @author Filipp Zaripov
  */
-public class FindBookByIDServlet extends HttpServlet {
+public class FindBookByIDServlet extends BaseServlet {
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArrayList<Book> bookList = new ArrayList();
         CategoryService categoryService = new CategoryServiceImpl();
         String idFromField = req.getParameter("id");
@@ -47,9 +47,7 @@ public class FindBookByIDServlet extends HttpServlet {
 
         requestDispatcher.forward(req, resp);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
-    }
 }
+
+
+
