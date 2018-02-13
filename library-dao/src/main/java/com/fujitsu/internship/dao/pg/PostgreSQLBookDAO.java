@@ -119,7 +119,7 @@ public class PostgreSQLBookDAO implements BookDAO {
         return bookList;
     }
 
-    /*public List<Book> getAllBooksPaging(int limit, int offset){
+    public List<Book> getAllBooksPaging(int limit, int offset){
         List<Book> bookList = new ArrayList();
         try (Connection connection = connector.getConnection();
              PreparedStatement stmt = connection.prepareStatement(
@@ -139,5 +139,5 @@ public class PostgreSQLBookDAO implements BookDAO {
             throw new DataAccessException("SQL Exception while get all books", e);
         }
         return bookList;
-    }*/
+    }
 }
