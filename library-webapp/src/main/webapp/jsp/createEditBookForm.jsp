@@ -16,12 +16,13 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/myScripts.js"></script>
     <link rel='stylesheet' href='${pageContext.request.contextPath}/css/myCss.css'/>
     <base href="/library-webapp/"/>
+    <meta contentType="text/html; charset=UTF-8"/>
     <title>EditBook</title>
 </head>
 <body>
 
 
-<div id="editBookForm">
+<div class="container" id="editBookForm">
     <div>
         <div class="alert alert-success" style="${displayEditBookAlert}"><c:out value="${resultEdit}"/></div>
         <div class="alert alert-danger" style="${displayErrorEditBookAlert}"><c:out value="${resultError}"/></div>

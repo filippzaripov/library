@@ -23,9 +23,10 @@ public class DeleteBookServlet extends BaseServlet {
         Long id = Long.parseLong(req.getParameter("ID_to_delete"));
         HttpSession session = req.getSession(false);
         Book book = bookService.getBook(id);
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html; charset=UTF-8");
         if (bookService.deleteBook(id)) {
             session.setAttribute("result", "Book '" + book.getName() + "' was removed successfully!");
-            // session.setAttribute("mainTableAlert", "display: block;");
         }
         resp.sendRedirect(req.getContextPath() + "/main");
     }

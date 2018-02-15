@@ -14,6 +14,13 @@ import java.util.List;
 public interface BookDAO extends GenericDAO<Book> {
 
     /**
+     * @param limit limit in the SQL request
+     * @param offset offset in the SQL request
+     * @return all books as List or empty list if none found.
+     */
+    List<Book> getAllBooksPaging(int limit, int offset);
+
+    /**
      * @return all books as List or empty list if none found.
      */
     List<Book> getAll();
