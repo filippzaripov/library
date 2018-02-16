@@ -21,6 +21,8 @@ public class CreateAndEditBookServlet extends BaseServlet {
         HttpSession session = req.getSession(false);
         BookService bookService = new BookServiceImplementation();
         CategoryService categoryService = new CategoryServiceImpl();
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html; charset=UTF-8");
         session.setAttribute("categoriesList", categoryService.getAllBookCategories());
         session.setAttribute("result", null);
         session.setAttribute("displayEditBookAlert", "display: none;");

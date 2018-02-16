@@ -47,6 +47,11 @@ public class BookServiceImplementation implements BookService {
         return getBook(id) != null && bookDAO.delete(id) ? true : false;
     }
 
+
+    public List<Book> getAllBooksPaging(int pageSize, int pageNumber) {
+        return bookDAO.getAllBooksPaging(pageSize, (pageNumber - 1) * pageSize);
+    }
+
     @Override
     public List<Book> getAllBooks() {
         return bookDAO.getAll();

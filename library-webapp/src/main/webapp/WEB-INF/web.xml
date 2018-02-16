@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <welcome-file-list>
-        <welcome-file>jsp/index.jsp</welcome-file>
+        <welcome-file>/jsp/index.jsp</welcome-file>
     </welcome-file-list>
     <!--<error-page>
-        <location>/commonErrorPage.jsp</location>
+        <location>/jsp/commonErrorPage.jsp</location>
     </error-page>-->
 
     <servlet>
@@ -67,8 +67,11 @@
         <url-pattern>/main</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ShowAllBooksServlet</servlet-name>
+        <url-pattern>/main/books</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DeleteBookByID</servlet-name>
         <url-pattern>/main/delete_book</url-pattern>
     </servlet-mapping>
-
 </web-app>

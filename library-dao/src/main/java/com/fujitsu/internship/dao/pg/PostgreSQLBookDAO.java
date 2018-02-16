@@ -124,9 +124,9 @@ public class PostgreSQLBookDAO implements BookDAO {
         try (Connection connection = connector.getConnection();
              PreparedStatement stmt = connection.prepareStatement(
                         "SELECT id,name,category_name,author FROM books " +
-                             "ORDER BY id ASC" +
-                             "LIMIT ?" +
-                             "OFFSET ?");
+                             "ORDER BY id ASC " +
+                             "LIMIT ? " +
+                             "OFFSET ? ");
         ) {
 
             stmt.setInt(1, limit);

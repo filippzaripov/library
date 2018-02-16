@@ -1,5 +1,5 @@
 body{
-    background: #875d90;
+    background: #a3e4be;
 }
 
 #editBookForm {
@@ -12,13 +12,12 @@ body{
 }
 #mainCentral{
     background: #F5F5F5;
-    margin: 10px auto;
-    width: 100em;
+    padding-top: 10px;
     padding: 30px 30px;
     border-radius: 10px;
 }
 
-#savebutton{
+#saveButton{
     margin-top: 10px;
 
 }
@@ -27,5 +26,9 @@ body{
     margin-top: 10px;
 }
 
+#booksLimit{
+    width: 65px;
+    margin-right: 30px;
+}
 
 

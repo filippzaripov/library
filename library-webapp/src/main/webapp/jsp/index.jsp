@@ -15,7 +15,5 @@
     <title>Library</title>
 </head>
 <body>
-    <jsp:forward page="/main"></jsp:forward>
-    <script>getNotificationPermission()</script>
-</body>
+   <% response.sendRedirect(request.getContextPath()+"/main/books?page=1");%>
 </html>

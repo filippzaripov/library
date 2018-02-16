@@ -18,6 +18,9 @@ public class SaveEditedBookServlet extends BaseServlet {
     protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookService bookService = new BookServiceImplementation();
         HttpSession session = req.getSession(false);
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html; charset=UTF-8");
+
         if (session.getAttribute("saveType").equals("Create")) {
             String name = req.getParameter("name");
             Author author = new Author(req.getParameter("author"));
@@ -37,7 +40,7 @@ public class SaveEditedBookServlet extends BaseServlet {
             Long editedBookId = Long.parseLong(req.getParameter("id"));
             boolean edited = bookService.editBook(editedBookId, req.getParameter("name"), new BookCategory(req.getParameter("category")), new Author(req.getParameter("author")));
             if (edited) {
-                resp.sendRedirect(req.getContextPath() + "/main");
+                resp.sendRedirect(req.getContextPath() + "/main/books?page=1");
             } else {
                 session.setAttribute("displayErrorEditBookAlert", "display: block;");
                 session.setAttribute("displayEditBookAlert", "display: none;");

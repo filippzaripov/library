@@ -33,9 +33,17 @@ public interface BookService {
     boolean deleteBook(long id);
 
     /**
+     * @param pageSize amount of rows that shows on the page
+     * @param pageNumber number of the page that user choose
      * @return all books as List ordered by id or empty list if none found.
      */
 
+    List<Book> getAllBooksPaging(int pageSize, int pageNumber);
+
+    /**
+     *
+     * @return all books as List ordered by id or empty list if none found
+     */
     List<Book> getAllBooks();
 
     /**
