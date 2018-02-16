@@ -48,8 +48,8 @@ public class BookServiceImplementation implements BookService {
     }
 
 
-    public List<Book> getAllBooksPaging(int limit, int pageNumber) {
-        return bookDAO.getAllBooksPaging(limit, (pageNumber - 1) * limit);
+    public List<Book> getAllBooksPaging(int pageSize, int pageNumber) {
+        return bookDAO.getAllBooksPaging(pageSize, (pageNumber - 1) * pageSize);
     }
 
     @Override

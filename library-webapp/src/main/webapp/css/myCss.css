@@ -12,8 +12,7 @@ body{
 }
 #mainCentral{
     background: #F5F5F5;
-    /*margin: 10px auto;
-    width: 100em;*/
+    padding-top: 10px;
     padding: 30px 30px;
     border-radius: 10px;
 }
